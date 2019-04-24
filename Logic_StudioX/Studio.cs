@@ -21,16 +21,7 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; private set; }
         public string Wachtwoord { get; private set; }
 
-        public List<Afspraak> Afspraken = new List<Afspraak>();
-
-        public List<Instrument> Instrumenten = new List<Instrument>();
-
         private IStudioDAL StudioDAL = Factory.CreateStudioDAL();
-
-        public Studio()
-        {
-            
-        }
 
         public Studio(StudioStruct studioStruct)
         {
@@ -44,21 +35,6 @@ namespace Logic_StudioX
             WoonPlaats = studioStruct.WoonPlaats;
             Gebruikersnaam = studioStruct.Gebruikersnaam;
             Wachtwoord = studioStruct.Wachtwoord;
-        }
-
-        public void VerwijderAfspraak(Afspraak afspraak)
-        {
-            Afspraken.Remove(afspraak);
-        }
-
-        public void VoegInstrumentToe(Instrument instrument)
-        {
-            Instrumenten.Add(instrument);
-        }
-
-        public void VerwijderInstrument(Instrument instrument)
-        {
-            Instrumenten.Remove(instrument);
         }
 
         public void UpdateStudio(string naam = "", string telefoonnummer = "", string emailadres = "", string straat = "", int huisnummer = 0,

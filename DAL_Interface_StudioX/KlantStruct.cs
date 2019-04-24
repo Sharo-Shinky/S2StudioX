@@ -30,9 +30,10 @@ namespace DAL_Interface_StudioX
         public string WoonPlaats { get; private set; }
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
+        public int StudioId { get; private set; }
 
         public KlantStruct(int id, string voornaam, string achternaam, Gender geslacht, DateTime geboorteDatum, string telefoonnummer,
-            string emailadres, string straat, int huisnummer, string postcode, string woonplaats, string gebruikernaam, string wachtwoord)
+            string emailadres, string straat, int huisnummer, string postcode, string woonplaats, string gebruikernaam, string wachtwoord, int studioId)
         {
             Id = id;
             VoorNaam = voornaam;
@@ -47,10 +48,11 @@ namespace DAL_Interface_StudioX
             WoonPlaats = woonplaats;
             Gebruikersnaam = gebruikernaam;
             Wachtwoord = wachtwoord;
+            StudioId = studioId;
         }
 
         public KlantStruct(int id, string voornaam, string achternaam, int geslacht, DateTime geboorteDatum, string telefoonnummer,
-            string emailadres, string straat, int huisnummer, string postcode, string woonplaats, string gebruikernaam, string wachtwoord)
+            string emailadres, string straat, int huisnummer, string postcode, string woonplaats, string gebruikernaam, string wachtwoord, int studioId)
         {
             Id = id;
             VoorNaam = voornaam;
@@ -65,6 +67,7 @@ namespace DAL_Interface_StudioX
             WoonPlaats = woonplaats;
             Gebruikersnaam = gebruikernaam;
             Wachtwoord = wachtwoord;
+            StudioId = studioId;
         }
     }
 }

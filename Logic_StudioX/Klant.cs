@@ -35,8 +35,6 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
 
-        public List<Afspraak> Afspraken = new List<Afspraak>();
-
         private IKlantDAL KlantDAL = Factory.CreateKlantDAL();
 
         public Klant(KlantStruct klantStruct)
@@ -54,16 +52,6 @@ namespace Logic_StudioX
             WoonPlaats = klantStruct.WoonPlaats;
             Gebruikersnaam = klantStruct.Gebruikersnaam;
             Wachtwoord = klantStruct.Wachtwoord;
-        }
-
-        public void MaakAfspraak(Afspraak afspraak)
-        {
-            Afspraken.Add(afspraak);
-        }
-
-        public void VerwijderAfspraaak(Afspraak afspraak)
-        {
-            Afspraken.Remove(afspraak);
         }
 
         public void UpdateKlant(string voornaam = "", string achternaam = "", Gender geslacht = Gender.Onbekend, DateTime geboortedatum = new DateTime(), string telefoonnummer = "",

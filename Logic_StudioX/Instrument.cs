@@ -12,6 +12,8 @@ namespace Logic_StudioX
     {
         public int Id { get; private set; }
         public string Naam { get; private set; }
+        public int StudioId { get; private set; }
+        public int AfspraakId { get; private set; }
 
         private IInstrumentDAL InstrumentDAL = Factory.CreateInstrumentDAL();
 
@@ -19,6 +21,8 @@ namespace Logic_StudioX
         {
             Id = instrumentStruct.Id;
             Naam = instrumentStruct.Naam;
+            StudioId = instrumentStruct.StudioId;
+            AfspraakId = instrumentStruct.AfspraakId;
         }
 
         public void UpdateInstrument(string naam = "")
