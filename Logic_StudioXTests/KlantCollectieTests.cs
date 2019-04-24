@@ -39,5 +39,11 @@ namespace Logic_StudioX.Tests
 
             Assert.AreEqual(testklant.VoorNaam, lastAdded.VoorNaam);
         }
+
+        [TestMethod()]
+        public void RemoveTest()
+        {
+            Assert.Fail();
+        }
     }
 }
