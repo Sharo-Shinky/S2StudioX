@@ -34,6 +34,7 @@ namespace Logic_StudioX
         public string WoonPlaats { get; private set; }
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
+        public int StudioId { get; private set; }
 
         private IKlantDAL KlantDAL = Factory.CreateKlantDAL();
 
@@ -52,9 +53,10 @@ namespace Logic_StudioX
             WoonPlaats = klantStruct.WoonPlaats;
             Gebruikersnaam = klantStruct.Gebruikersnaam;
             Wachtwoord = klantStruct.Wachtwoord;
+            StudioId = klantStruct.StudioId;
         }
 
-        public void UpdateKlant(string voornaam = "", string achternaam = "", Gender geslacht = Gender.Onbekend, DateTime geboortedatum = new DateTime(), string telefoonnummer = "",
+        public void UpdateKlant(int id, string voornaam = "", string achternaam = "", Gender geslacht = Gender.Onbekend, DateTime geboortedatum = new DateTime(), string telefoonnummer = "",
             string emailadres = "", string straat = "", int huisnummer = 0, string postode = "", string woonplaats = "", string wachtwoord = "")
         {
             if (voornaam != "")

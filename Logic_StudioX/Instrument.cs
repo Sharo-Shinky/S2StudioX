@@ -25,7 +25,7 @@ namespace Logic_StudioX
             AfspraakId = instrumentStruct.AfspraakId;
         }
 
-        public void UpdateInstrument(string naam = "")
+        public void UpdateInstrument(int id, string naam = "")
         {
             if (naam != "")
             {

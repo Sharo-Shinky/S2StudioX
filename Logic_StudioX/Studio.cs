@@ -37,7 +37,7 @@ namespace Logic_StudioX
             Wachtwoord = studioStruct.Wachtwoord;
         }
 
-        public void UpdateStudio(string naam = "", string telefoonnummer = "", string emailadres = "", string straat = "", int huisnummer = 0,
+        public void UpdateStudio(int id, string naam = "", string telefoonnummer = "", string emailadres = "", string straat = "", int huisnummer = 0,
             string postode = "", string woonplaats = "", string gebruikersnaam = "", string wachtwoord = "")
         {
             if (naam != "")

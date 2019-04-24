@@ -18,8 +18,6 @@ namespace Logic_StudioX
         public int KlantId { get; private set; }
         public int StudioId { get; private set; }
 
-        public List<Instrument> Instrumenten = new List<Instrument>();
-
         private IAfspraakDAL AfspraakDAL = Factory.CreateAfspraakDAL();
 
         public Afspraak(AfspraakStruct afspraakStruct)
@@ -32,7 +30,7 @@ namespace Logic_StudioX
             StudioId = afspraakStruct.StudioId;
         }
 
-        public void UpdateAfspraak(DateTime beginTijd, DateTime eindTijd, string opmerking)
+        public void UpdateAfspraak(int id ,DateTime beginTijd, DateTime eindTijd, string opmerking)
         {
             if (beginTijd != BeginTijd)
             {

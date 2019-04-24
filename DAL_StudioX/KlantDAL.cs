@@ -31,11 +31,10 @@ namespace DAL_StudioX
         {
             using (GetConnection())
             {
-                //StudioId toevoegen
                 string query = "INSERT INTO Klant(Voornaam, Achternaam, Geslacht, Geboortedatum, Telefoonnummer, Email," +
-                               "Straat, Huisnummer, Postcode, Woonplaats, Gebruikersnaam, Wachtwoord) Values" +
+                               "Straat, Huisnummer, Postcode, Woonplaats, Gebruikersnaam, Wachtwoord, StudioId) Values" +
                                "(@Voornaam, @Achternaam, @Geslacht, @Geboortedatum, @Telefoonnummer, @Email, @Straat," +
-                               "@Huisnummer, @Postcode, @Woonplaats, @Gebruikersnaam, @Wachtwoord)";
+                               "@Huisnummer, @Postcode, @Woonplaats, @Gebruikersnaam, @Wachtwoord, @StudioId)";
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Voornaam", klantStruct.VoorNaam);
@@ -50,6 +49,7 @@ namespace DAL_StudioX
                 command.Parameters.AddWithValue("Woonplaats", klantStruct.WoonPlaats);
                 command.Parameters.AddWithValue("Gebruikersnaam", klantStruct.Gebruikersnaam);
                 command.Parameters.AddWithValue("Wachtwoord", klantStruct.Wachtwoord);
+                command.Parameters.AddWithValue("StudioId", klantStruct.StudioId);
 
                 command.ExecuteNonQuery();
             }
@@ -67,12 +67,11 @@ namespace DAL_StudioX
                 {
                     while (reader.Read())
                     {
-                        //StudioId toevoegen
                         klantStructList.Add(new KlantStruct(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
                                                             reader.GetInt32(3), reader.GetDateTime(4), reader.GetString(5),
                                                             reader.GetString(6), reader.GetString(7), reader.GetInt32(8),
                                                             reader.GetString(9), reader.GetString(10), reader.GetString(11),
-                                                            reader.GetString(12)));
+                                                            reader.GetString(12), reader.GetInt32(13)));
                     }
                 }
             }
