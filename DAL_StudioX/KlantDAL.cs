@@ -81,9 +81,9 @@ namespace DAL_StudioX
 
         public void Remove(int id)
         {
-            string query = "DELETE FROM Klant WHERE Klant.Id = " + id;
             using (GetConnection())
             {
+                string query = "DELETE FROM Klant WHERE Klant.Id = " + id;
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();

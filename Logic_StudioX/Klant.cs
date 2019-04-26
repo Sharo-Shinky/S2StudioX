@@ -56,63 +56,20 @@ namespace Logic_StudioX
             StudioId = klantStruct.StudioId;
         }
 
-        public void UpdateKlant(int id, string voornaam = "", string achternaam = "", Gender geslacht = Gender.Onbekend, DateTime geboortedatum = new DateTime(), string telefoonnummer = "",
-            string emailadres = "", string straat = "", int huisnummer = 0, string postode = "", string woonplaats = "", string wachtwoord = "")
+        public void UpdateKlant()
         {
-            if (voornaam != "")
-            {
-                VoorNaam = voornaam;
-            }
+            KlantStruct klantStruct = new KlantStruct(Id, VoorNaam, AchterNaam, (int)Geslacht, GeboorteDatum, TelefoonNummer, EmailAdres, Straat, HuisNummer, PostCode, WoonPlaats, Gebruikersnaam, Wachtwoord, StudioId);
+            KlantDAL.Update(klantStruct);
+        }
 
-            if (achternaam != "")
-            {
-                AchterNaam = achternaam;
-            }
+        void UpdateGebruikersNaam(string GebruikersNaam)
+        {
 
-            if (geslacht != Gender.Onbekend)
-            {
-                Geslacht = geslacht;
-            }
+        }
 
-            if (geboortedatum != GeboorteDatum)
-            {
-                GeboorteDatum = geboortedatum;
-            }
+        void UpdateWachtwoord(string wachtwoord)
+        {
 
-            if (telefoonnummer != "")
-            {
-                TelefoonNummer = telefoonnummer;
-            }
-
-            if (emailadres != "")
-            {
-                EmailAdres = emailadres;
-            }
-
-            if (straat != "")
-            {
-                Straat = straat;
-            }
-
-            if (huisnummer != 0)
-            {
-                HuisNummer = huisnummer;
-            }
-
-            if (postode != "")
-            {
-                PostCode = postode;
-            }
-
-            if (woonplaats != "")
-            {
-                WoonPlaats = woonplaats;
-            }
-
-            if (wachtwoord != "")
-            {
-                Wachtwoord = wachtwoord;
-            }
-    }
+        }
     }
 }

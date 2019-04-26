@@ -9,5 +9,10 @@ namespace DAL_Interface_StudioX
     public interface IKlantDAL
     {
         void Update(KlantStruct klantStruct);
+
+        void UpdateGebruikersNaam(string GebruikersNaam);
+
+        void UpdateWachtwoord(string wachtwoord);
+
     }
 }
