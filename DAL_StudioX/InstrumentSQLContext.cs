@@ -8,7 +8,7 @@ using DAL_Interface_StudioX;
 
 namespace DAL_StudioX
 {
-    public class InstrumentDAL : IInstrumentCollectieDAL, IInstrumentDAL
+    public class InstrumentSQLContext : IInstrumentCollectieRepository, IInstrumentRepository
     {
         public void AddInstrument(InstrumentStruct instrumentStruct)
         {

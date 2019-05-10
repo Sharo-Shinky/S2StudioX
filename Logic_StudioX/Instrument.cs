@@ -15,7 +15,7 @@ namespace Logic_StudioX
         public int StudioId { get; private set; }
         public int AfspraakId { get; private set; }
 
-        private IInstrumentDAL InstrumentDAL = Factory.CreateInstrumentDAL();
+        private IInstrumentRepository InstrumentDAL = Factory.CreateInstrumentDAL();
 
         public Instrument(InstrumentStruct instrumentStruct)
         {

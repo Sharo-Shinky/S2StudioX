@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL_Interface_StudioX
 {
-    public interface IKlantCollectieDAL
+    public interface IAfspraakRepository
     {
-        void Add(KlantStruct klantStruct);
-        void Remove(int id);
-        List<KlantStruct> GetAll();
+        void Update(AfspraakStruct afspraakStruct);
     }
 }

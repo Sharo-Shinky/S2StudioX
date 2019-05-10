@@ -18,7 +18,7 @@ namespace Logic_StudioX
         public int KlantId { get; private set; }
         public int StudioId { get; private set; }
 
-        private IAfspraakDAL AfspraakDAL = Factory.CreateAfspraakDAL();
+        private IAfspraakRepository AfspraakDAL = Factory.CreateAfspraakDAL();
 
         public Afspraak(AfspraakStruct afspraakStruct)
         {

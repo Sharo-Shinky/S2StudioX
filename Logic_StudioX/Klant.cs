@@ -36,7 +36,7 @@ namespace Logic_StudioX
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
 
-        private IKlantDAL KlantDAL = Factory.CreateKlantDAL();
+        private IKlantRepository KlantRepository = Factory.CreateKlantSQLContext();
 
         public Klant(KlantStruct klantStruct)
         {
@@ -56,20 +56,19 @@ namespace Logic_StudioX
             StudioId = klantStruct.StudioId;
         }
 
-        public void UpdateKlant()
+        public void UpdateKlant(KlantStruct klantStruct)
         {
-            KlantStruct klantStruct = new KlantStruct(Id, VoorNaam, AchterNaam, (int)Geslacht, GeboorteDatum, TelefoonNummer, EmailAdres, Straat, HuisNummer, PostCode, WoonPlaats, Gebruikersnaam, Wachtwoord, StudioId);
-            KlantDAL.Update(klantStruct);
+            KlantRepository.Update(klantStruct);
         }
 
-        void UpdateGebruikersNaam(string GebruikersNaam)
+        public void UpdateGebruikersNaam(string gebruikersNaam)
         {
-
+            KlantRepository.UpdateGebruikersNaam(gebruikersNaam);
         }
 
-        void UpdateWachtwoord(string wachtwoord)
+        public void UpdateWachtwoord(string wachtwoord)
         {
-
+            KlantRepository.UpdateWachtwoord(wachtwoord);
         }
     }
 }

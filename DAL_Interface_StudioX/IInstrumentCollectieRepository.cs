@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_Interface_StudioX
 {
-    public interface IInstrumentCollectieDAL
+    public interface IInstrumentCollectieRepository
     {
         void AddInstrument(InstrumentStruct instrumentStruct);
         void RemoveInstrument(int id);

@@ -15,7 +15,7 @@ namespace DAL_Interface_StudioX
         Man,
         Vrouw
     }
-    public struct KlantStruct
+    public class KlantStruct
     {
         public int Id { get; private set; }
         public string VoorNaam { get; private set; }

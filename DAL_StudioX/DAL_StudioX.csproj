@@ -56,11 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AfspraakDAL.cs" />
-    <Compile Include="InstrumentDAL.cs" />
-    <Compile Include="KlantDAL.cs" />
+    <Compile Include="AfspraakSQLContext.cs" />
+    <Compile Include="IKlantContext.cs" />
+    <Compile Include="InstrumentSQLContext.cs" />
+    <Compile Include="KlantRepository.cs" />
+    <Compile Include="KlantSQLContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudioDAL.cs" />
+    <Compile Include="StudioSQLContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL_Interface_StudioX\DAL_Interface_StudioX.csproj">

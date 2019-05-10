@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL_Interface_StudioX
 {
-    public interface IStudioDAL
+    public interface IStudioRepository
     {
         void Update(StudioStruct studioStruct);
 
-        void UpdateGebruikersNaam(); //UPDATE OP BASIS VAN ID of "string gebruikersnaam"??
+        void UpdateGebruikersNaam(string gebruikersnaam);
 
         void UpdateWachtwoord(string wachtwoord);
     }

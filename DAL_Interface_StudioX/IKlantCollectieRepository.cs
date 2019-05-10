@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL_Interface_StudioX
 {
-    public interface IStudioCollectieDAL
+    public interface IKlantCollectieRepository
     {
-        void Add(StudioStruct studioStruct);
+        void Add(KlantStruct klantStruct);
         void Remove(int id);
-        List<StudioStruct> GetAll();
+        List<KlantStruct> GetAll();
     }
 }

@@ -10,7 +10,7 @@ namespace Logic_StudioX
 {
     public static class StudioCollectie
     {
-        private static IStudioCollectieDAL StudioCollectieDAL = Factory.CreateStudioCollectieDAL();
+        private static IStudioCollectieRepository StudioCollectieDAL = Factory.CreateStudioCollectieDAL();
         public static void Add(StudioStruct studioStruct)
         {
             StudioCollectieDAL.Add(studioStruct);

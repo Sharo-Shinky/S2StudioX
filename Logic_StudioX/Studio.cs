@@ -21,7 +21,7 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; private set; }
         public string Wachtwoord { get; private set; }
 
-        private IStudioDAL StudioDAL = Factory.CreateStudioDAL();
+        private IStudioRepository StudioDAL = Factory.CreateStudioDAL();
 
         public Studio(StudioStruct studioStruct)
         {
@@ -84,6 +84,16 @@ namespace Logic_StudioX
             {
                 Wachtwoord = wachtwoord;
             }
+        }
+
+        public void UpdateGebruikersNaam(string gebruikersNaam)
+        {
+
+        }
+
+        public void UpdateWachtwoord(string wachtwoord)
+        {
+
         }
     }
 }

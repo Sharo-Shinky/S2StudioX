@@ -10,22 +10,22 @@ namespace Logic_StudioX
 {
     public static class KlantCollectie
     {
-        private static IKlantCollectieDAL KlantCollectieDAL = Factory.CreateKlantCollectieDAL();
+        private static IKlantCollectieRepository KlantCollectieRepository = Factory.CreateKlantCollectieSQLContext();
 
         public static void Add(KlantStruct klantStruct)
         {
-            KlantCollectieDAL.Add(klantStruct);
+            KlantCollectieRepository.Add(klantStruct);
         }
 
         public static void Remove(int id)
         {
-            KlantCollectieDAL.Remove(id);
+            KlantCollectieRepository.Remove(id);
         }
 
         public static List<Klant> GetAll()
         {
             List<Klant> KlantList = new List<Klant>();
-            foreach (KlantStruct klantstruct in KlantCollectieDAL.GetAll())
+            foreach (KlantStruct klantstruct in KlantCollectieRepository.GetAll())
             {
                 KlantList.Add(new Klant(klantstruct));
             }

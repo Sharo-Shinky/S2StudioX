@@ -8,7 +8,7 @@ using DAL_Interface_StudioX;
 
 namespace DAL_StudioX
 {
-    public class AfspraakDAL : IAfspraakDAL
+    public class AfspraakSQLContext : IAfspraakRepository
     {
         public void Update(AfspraakStruct afspraakStruct)
         {

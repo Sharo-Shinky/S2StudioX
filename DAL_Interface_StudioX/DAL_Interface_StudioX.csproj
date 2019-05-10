@@ -42,14 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AfspraakStruct.cs" />
-    <Compile Include="IAfspraakDAL.cs" />
-    <Compile Include="IInstrumentCollectieDAL.cs" />
-    <Compile Include="IInstrumentDAL.cs" />
-    <Compile Include="IKlantCollectieDAL.cs" />
-    <Compile Include="IKlantDAL.cs" />
+    <Compile Include="IAfspraakRepository.cs" />
+    <Compile Include="IInstrumentCollectieRepository.cs" />
+    <Compile Include="IInstrumentRepository.cs" />
+    <Compile Include="IKlantCollectieRepository.cs" />
+    <Compile Include="IKlantRepository.cs" />
     <Compile Include="InstrumentStruct.cs" />
-    <Compile Include="IStudioCollectieDAL.cs" />
-    <Compile Include="IStudioDAL.cs" />
+    <Compile Include="IStudioCollectieRepository.cs" />
+    <Compile Include="IStudioRepository.cs" />
     <Compile Include="KlantStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudioStruct.cs" />

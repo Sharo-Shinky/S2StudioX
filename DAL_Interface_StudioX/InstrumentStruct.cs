@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_Interface_StudioX
 {
-    public struct InstrumentStruct
+    public class InstrumentStruct
     {
         public int Id { get; private set; }
         public string Naam { get; }

@@ -8,7 +8,7 @@ using DAL_Interface_StudioX;
 
 namespace DAL_StudioX
 {
-    public class StudioDAL : IStudioDAL, IStudioCollectieDAL
+    public class StudioSQLContext : IStudioRepository, IStudioCollectieRepository
     {
         public void Add(StudioStruct studioStruct)
         {
@@ -26,6 +26,16 @@ namespace DAL_StudioX
         }
 
         public void Update(StudioStruct studioStruct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateGebruikersNaam(string gebruikersnaam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateWachtwoord(string wachtwoord)
         {
             throw new NotImplementedException();
         }

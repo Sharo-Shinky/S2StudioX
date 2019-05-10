@@ -10,39 +10,39 @@ namespace Factory_StudioX
 {
     public static class Factory
     {
-        public static IKlantDAL CreateKlantDAL()
+        public static IKlantRepository CreateKlantSQLContext()
         {
-            return new KlantDAL();
+            return new KlantRepository(new KlantSQLContext());
         }
 
-        public static IKlantCollectieDAL CreateKlantCollectieDAL()
+        public static IKlantCollectieRepository CreateKlantCollectieSQLContext()
         {
-            return new KlantDAL();
+            return new KlantRepository(new KlantSQLContext());
         }
 
-        public static IStudioDAL CreateStudioDAL()
+        public static IStudioRepository CreateStudioDAL()
         {
-            return new StudioDAL();
+            return new StudioSQLContext();
         }
 
-        public static IStudioCollectieDAL CreateStudioCollectieDAL()
+        public static IStudioCollectieRepository CreateStudioCollectieDAL()
         {
-            return new StudioDAL();
+            return new StudioSQLContext();
         }
 
-        public static IInstrumentDAL CreateInstrumentDAL()
+        public static IInstrumentRepository CreateInstrumentDAL()
         {
-            return new InstrumentDAL();
+            return new InstrumentSQLContext();
         }
 
-        public static IInstrumentCollectieDAL CreateInstrumentCollectieDAL()
+        public static IInstrumentCollectieRepository CreateInstrumentCollectieDAL()
         {
-            return new InstrumentDAL();
+            return new InstrumentSQLContext();
         }
 
-        public static IAfspraakDAL CreateAfspraakDAL()
+        public static IAfspraakRepository CreateAfspraakDAL()
         {
-            return new AfspraakDAL();
+            return new AfspraakSQLContext();
         }
     }
 }

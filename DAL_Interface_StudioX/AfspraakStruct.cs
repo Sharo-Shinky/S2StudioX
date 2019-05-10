@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_Interface_StudioX
 {
-    public struct AfspraakStruct
+    public class AfspraakStruct
     {
         public int Id { get; private set; }
         public DateTime BeginTijd { get; private set; }
