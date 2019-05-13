@@ -10,22 +10,22 @@ namespace Logic_StudioX
 {
     public static class StudioCollectie
     {
-        private static IStudioCollectieRepository StudioCollectieDAL = Factory.CreateStudioCollectieDAL();
+        private static IStudioCollectieRepository StudioCollectieRepository = Factory.CreateStudioCollectieSQLContext();
         public static void Add(StudioStruct studioStruct)
         {
-            StudioCollectieDAL.Add(studioStruct);
+            StudioCollectieRepository.Add(studioStruct);
         }
 
         public static void Remove(int id)
         {
-            StudioCollectieDAL.Remove(id);
+            StudioCollectieRepository.Remove(id);
         }
 
         public static List<Studio> GetAll()
         {
             List<Studio> StudioList = new List<Studio>();
 
-            foreach (StudioStruct studioStruct in StudioCollectieDAL.GetAll())
+            foreach (StudioStruct studioStruct in StudioCollectieRepository.GetAll())
             {
                 StudioList.Add(new Studio(studioStruct));
             }

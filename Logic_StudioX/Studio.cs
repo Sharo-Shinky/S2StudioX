@@ -21,7 +21,7 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; private set; }
         public string Wachtwoord { get; private set; }
 
-        private IStudioRepository StudioDAL = Factory.CreateStudioDAL();
+        private IStudioRepository StudioRepository = Factory.CreateStudioSQLContext();
 
         public Studio(StudioStruct studioStruct)
         {
@@ -37,63 +37,19 @@ namespace Logic_StudioX
             Wachtwoord = studioStruct.Wachtwoord;
         }
 
-        public void UpdateStudio(int id, string naam = "", string telefoonnummer = "", string emailadres = "", string straat = "", int huisnummer = 0,
-            string postode = "", string woonplaats = "", string gebruikersnaam = "", string wachtwoord = "")
+        public void UpdateStudio(StudioStruct studioStruct)
         {
-            if (naam != "")
-            {
-                Naam = naam;
-            }
-
-            if (telefoonnummer != "")
-            {
-                TelefoonNummer = telefoonnummer;
-            }
-
-            if (emailadres != "")
-            {
-                EmailAdres = emailadres;
-            }
-
-            if (straat != "")
-            {
-                Straat = straat;
-            }
-
-            if (huisnummer != 0)
-            {
-                HuisNummer = huisnummer;
-            }
-
-            if (postode != "")
-            {
-                PostCode = postode;
-            }
-
-            if (woonplaats != "")
-            {
-                WoonPlaats = woonplaats;
-            }
-
-            if (gebruikersnaam != "")
-            {
-                Gebruikersnaam = gebruikersnaam;
-            }
-
-            if (wachtwoord != "")
-            {
-                Wachtwoord = wachtwoord;
-            }
+            StudioRepository.Update(studioStruct);
         }
 
-        public void UpdateGebruikersNaam(string gebruikersNaam)
+        public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-
+            StudioRepository.UpdateGebruikersNaam(gebruikersnaam, id);
         }
 
-        public void UpdateWachtwoord(string wachtwoord)
+        public void UpdateWachtwoord(string wachtwoord, int id)
         {
-
+            StudioRepository.UpdateWachtwoord(wachtwoord, id);
         }
     }
 }

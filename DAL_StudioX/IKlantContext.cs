@@ -17,8 +17,8 @@ namespace DAL_StudioX
 
         void Update(KlantStruct klantStruct);
 
-        void UpdateGebruikersNaam(string gebruikersNaam);
+        void UpdateGebruikersNaam(string gebruikersnaam, int id);
 
-        void UpdateWachtwoord(string wachtwoord);
+        void UpdateWachtwoord(string wachtwoord, int id);
     }
 }

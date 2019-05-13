@@ -57,11 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AfspraakSQLContext.cs" />
+    <Compile Include="DatabaseConnectie.cs" />
     <Compile Include="IKlantContext.cs" />
     <Compile Include="InstrumentSQLContext.cs" />
+    <Compile Include="IStudioContext.cs" />
     <Compile Include="KlantRepository.cs" />
     <Compile Include="KlantSQLContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudioRepository.cs" />
     <Compile Include="StudioSQLContext.cs" />
   </ItemGroup>
   <ItemGroup>

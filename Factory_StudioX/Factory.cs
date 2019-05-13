@@ -20,14 +20,14 @@ namespace Factory_StudioX
             return new KlantRepository(new KlantSQLContext());
         }
 
-        public static IStudioRepository CreateStudioDAL()
+        public static IStudioRepository CreateStudioSQLContext()
         {
-            return new StudioSQLContext();
+            return new StudioRepository(new StudioSQLContext());
         }
 
-        public static IStudioCollectieRepository CreateStudioCollectieDAL()
+        public static IStudioCollectieRepository CreateStudioCollectieSQLContext()
         {
-            return new StudioSQLContext();
+            return new StudioRepository(new StudioSQLContext());
         }
 
         public static IInstrumentRepository CreateInstrumentDAL()

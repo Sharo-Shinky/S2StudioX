@@ -61,14 +61,14 @@ namespace Logic_StudioX
             KlantRepository.Update(klantStruct);
         }
 
-        public void UpdateGebruikersNaam(string gebruikersNaam)
+        public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-            KlantRepository.UpdateGebruikersNaam(gebruikersNaam);
+            KlantRepository.UpdateGebruikersNaam(gebruikersnaam, id);
         }
 
-        public void UpdateWachtwoord(string wachtwoord)
+        public void UpdateWachtwoord(string wachtwoord, int id)
         {
-            KlantRepository.UpdateWachtwoord(wachtwoord);
+            KlantRepository.UpdateWachtwoord(wachtwoord, id);
         }
     }
 }

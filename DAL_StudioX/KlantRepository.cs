@@ -42,14 +42,14 @@ namespace DAL_StudioX
             KlantContext.Update(klantStruct);
         }
 
-        public void UpdateGebruikersNaam(string gebruikersNaam)
+        public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-            KlantContext.UpdateGebruikersNaam(gebruikersNaam);
+            KlantContext.UpdateGebruikersNaam(gebruikersnaam, id);
         }
 
-        public void UpdateWachtwoord(string wachtwoord)
+        public void UpdateWachtwoord(string wachtwoord, int id)
         {
-            KlantContext.UpdateWachtwoord(wachtwoord);
+            KlantContext.UpdateWachtwoord(wachtwoord, id);
         }
     }
 }

@@ -19,24 +19,17 @@ namespace DAL_StudioX
     }
     public class KlantSQLContext : IKlantContext
     {
-        private SqlConnection connection;
-        private const string connectionString =
-            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\249519\source\repos\StudioX\DAL_StudioX\StudioDatabase.mdf;Integrated Security = True";
-
-        private SqlConnection GetConnection()
-        {
-            return connection = new SqlConnection(connectionString);
-        }
+        DatabaseConnectie DbConn = new DatabaseConnectie();
         public void Add(KlantStruct klantStruct)
         {
-            using (GetConnection())
+            using (DbConn.connection)
             {
                 string query = "INSERT INTO Klant(Voornaam, Achternaam, Geslacht, Geboortedatum, Telefoonnummer, Email," +
                                "Straat, Huisnummer, Postcode, Woonplaats, Gebruikersnaam, Wachtwoord, StudioId) Values" +
                                "(@Voornaam, @Achternaam, @Geslacht, @Geboortedatum, @Telefoonnummer, @Email, @Straat," +
                                "@Huisnummer, @Postcode, @Woonplaats, @Gebruikersnaam, @Wachtwoord, @StudioId)";
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
                 command.Parameters.AddWithValue("@Voornaam", klantStruct.VoorNaam);
                 command.Parameters.AddWithValue("@Achternaam", klantStruct.AchterNaam);
                 command.Parameters.AddWithValue("Geslacht", (int)(klantStruct.Geslacht));
@@ -58,11 +51,11 @@ namespace DAL_StudioX
         public List<KlantStruct> GetAll()
         {
             List<KlantStruct> klantStructList = new List<KlantStruct>();
-            using (GetConnection())
+            using (DbConn.connection)
             {
                 string query = "SELECT * FROM Klant";
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -81,11 +74,11 @@ namespace DAL_StudioX
 
         public void Remove(int id)
         {
-            using (GetConnection())
+            using (DbConn.connection)
             {
                 string query = "DELETE FROM Klant WHERE Id = @Id";
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
                 SqlParameter param = new SqlParameter();
                 param.ParameterName = "@Id";
                 param.Value = id;
@@ -96,14 +89,14 @@ namespace DAL_StudioX
 
         public void Update(KlantStruct klantStruct)
         {
-            using (GetConnection())
+            using (DbConn.connection)
             {
                 string query = "UPDATE Klant SET Voornaaam = @Voornaam, Achternaam = @Achternaam, Geslacht = @Geslacht, " +
                                "Geboortedatum = @Geboortedatum, Telefoonnummer = @Telefoonnummer, Email = @Email, " +
                                "Straat = @Straat, Huisnummer = @Huisnummer, Postcode = @Postcode, Woonplaats = @Woonplaats" +
                                " WHERE Id = @Id";
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
 
                 command.Parameters.Add(new SqlParameter("@Voornaam", klantStruct.VoorNaam));
                 command.Parameters.Add(new SqlParameter("@Achternaam", klantStruct.AchterNaam));
@@ -120,21 +113,31 @@ namespace DAL_StudioX
             }
         }
 
-        public void UpdateGebruikersNaam(string gebruikersNaam) //MEthode moet hele klantstruct als parameter krijgen ?!?
+        public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-            using (GetConnection())
+            using (DbConn.connection)
             {
                 string query = "UPDATE Klant SET Gebruikersnaam = @Gebruikersnaam WHERE Id = @Id";
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                
-                
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
+
+                command.Parameters.Add(new SqlParameter("@Gebruikersnaam", gebruikersnaam));
+                command.Parameters.Add(new SqlParameter("@Id", id));
+
+                command.ExecuteNonQuery();
             }
         }
 
-        public void UpdateWachtwoord(string wachtwoord)
+        public void UpdateWachtwoord(string wachtwoord, int id)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Klant SET Wachtwoord = @Wachtwoord WHERE Id = @Id";
+            DbConn.connection.Open();
+            SqlCommand command = new SqlCommand(query, DbConn.connection);
+
+            command.Parameters.Add(new SqlParameter("@Wachtwoord", wachtwoord));
+            command.Parameters.Add(new SqlParameter("@Id", id));
+
+            command.ExecuteNonQuery();
         }
     }
 }

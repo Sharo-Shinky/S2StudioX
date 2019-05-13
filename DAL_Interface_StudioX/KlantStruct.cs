@@ -69,5 +69,10 @@ namespace DAL_Interface_StudioX
             Wachtwoord = wachtwoord;
             StudioId = studioId;
         }
+
+        public KlantStruct(string gebruikersnaam)
+        {
+            Gebruikersnaam = gebruikersnaam;
+        }
     }
 }
