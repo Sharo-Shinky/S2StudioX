@@ -79,9 +79,7 @@ namespace DAL_StudioX
                 string query = "DELETE FROM Klant WHERE Id = @Id";
                 DbConn.connection.Open();
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
-                SqlParameter param = new SqlParameter();
-                param.ParameterName = "@Id";
-                param.Value = id;
+                SqlParameter param = new SqlParameter("@Id", id);
                 command.Parameters.Add(param);
                 command.ExecuteNonQuery();
             }

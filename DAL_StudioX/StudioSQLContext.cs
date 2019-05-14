@@ -35,27 +35,88 @@ namespace DAL_StudioX
 
         public List<StudioStruct> GetAll()
         {
-            throw new NotImplementedException();
+            List<StudioStruct> studioStructList = new List<StudioStruct>();
+            using (DbConn.connection)
+            {
+                string query = "SELECT * FROM Studio";
+                DbConn.connection.Open();
+                SqlCommand command  = new SqlCommand(query, DbConn.connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        studioStructList.Add(new StudioStruct(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                                              reader.GetInt32(3), reader.GetString(4), reader.GetString(5),
+                                                              reader.GetString(6), reader.GetString(7), reader.GetString(8),
+                                                              reader.GetString(9)));
+                    }
+                }
+            }
+
+            return studioStructList;
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            using (DbConn.connection)
+            {
+                string query = "DELETE FROM Studio WHERE Id = @Id";
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlParameter param = new SqlParameter("@Id", id);
+                command.Parameters.Add(param);
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Update(StudioStruct studioStruct)
         {
-            throw new NotImplementedException();
+            using (DbConn.connection)
+            {
+                string query = "UPDATE Studio SET Naam = @Naam, Straat = @Straat, Huisnummer = @Huisnummer," +
+                               "Postcode = @Postcode, Woonplaats = @Woonplaats, Email = @Email," +
+                               "Telefoonnummer = @Telefoonnummer, WHERE Id = @Id";
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
+
+                command.Parameters.Add(new SqlParameter("@Naam", studioStruct.Naam));
+                command.Parameters.Add(new SqlParameter("@Straat", studioStruct.Straat));
+                command.Parameters.Add(new SqlParameter("@Huisnummer", studioStruct.HuisNummer));
+                command.Parameters.Add(new SqlParameter("@Postcode", studioStruct.PostCode));
+                command.Parameters.Add(new SqlParameter("@Woonplaats", studioStruct.WoonPlaats));
+                command.Parameters.Add(new SqlParameter("@Email", studioStruct.EmailAdres));
+                command.Parameters.Add(new SqlParameter("@Telefoonnummer", studioStruct.TelefoonNummer));
+                command.Parameters.Add(new SqlParameter("Id", studioStruct.Id));
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-            throw new NotImplementedException();
+            using (DbConn.connection)
+            {
+                string query = "UPDATE Studio SET Gebruikersnaam = @Gebruikersnaam WHERE Id = @Id";
+                DbConn.connection.Open();
+                SqlCommand command = new SqlCommand(query, DbConn.connection);
+
+                command.Parameters.Add(new SqlParameter("@Gebruikersnaam", gebruikersnaam));
+                command.Parameters.Add(new SqlParameter("@Id", id));
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public void UpdateWachtwoord(string wachtwoord, int id)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Studio SET Wachtwoord = @Wachtwoord WHERE Id = @Id";
+            DbConn.connection.Open();
+            SqlCommand command = new SqlCommand(query, DbConn.connection);
+
+            command.Parameters.Add(new SqlParameter("@Wachtwoord", wachtwoord));
+            command.Parameters.Add(new SqlParameter("@Id", id));
+
+            command.ExecuteNonQuery();
         }
     }
 }
