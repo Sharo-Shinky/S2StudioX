@@ -15,7 +15,7 @@ namespace Logic_StudioX
         public int StudioId { get; private set; }
         public int AfspraakId { get; private set; }
 
-        private IInstrumentRepository InstrumentDAL = Factory.CreateInstrumentDAL();
+        private IInstrumentRepository InstrumentRepository = Factory.CreateInstrumentSQLContext();
 
         public Instrument(InstrumentStruct instrumentStruct)
         {
@@ -25,12 +25,9 @@ namespace Logic_StudioX
             AfspraakId = instrumentStruct.AfspraakId;
         }
 
-        public void UpdateInstrument(int id, string naam = "")
+        public void UpdateInstrument(InstrumentStruct instrumentStruct)
         {
-            if (naam != "")
-            {
-                Naam = naam;
-            }
+            InstrumentRepository.UpdateInstrument(instrumentStruct);
         }
     }
 }

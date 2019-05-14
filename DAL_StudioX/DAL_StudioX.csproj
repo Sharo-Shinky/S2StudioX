@@ -56,9 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfspraakRepository.cs" />
     <Compile Include="AfspraakSQLContext.cs" />
     <Compile Include="DatabaseConnectie.cs" />
+    <Compile Include="IAfspraakContext.cs" />
+    <Compile Include="IInstrumentContext.cs" />
     <Compile Include="IKlantContext.cs" />
+    <Compile Include="InstrumentRepository.cs" />
     <Compile Include="InstrumentSQLContext.cs" />
     <Compile Include="IStudioContext.cs" />
     <Compile Include="KlantRepository.cs" />

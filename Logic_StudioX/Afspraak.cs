@@ -18,7 +18,7 @@ namespace Logic_StudioX
         public int KlantId { get; private set; }
         public int StudioId { get; private set; }
 
-        private IAfspraakRepository AfspraakDAL = Factory.CreateAfspraakDAL();
+        private IAfspraakRepository AfspraakRepository = Factory.CreateAfspraakSQLContext();
 
         public Afspraak(AfspraakStruct afspraakStruct)
         {
@@ -30,22 +30,9 @@ namespace Logic_StudioX
             StudioId = afspraakStruct.StudioId;
         }
 
-        public void UpdateAfspraak(int id ,DateTime beginTijd, DateTime eindTijd, string opmerking)
+        public void UpdateAfspraak(AfspraakStruct afspraakStruct)
         {
-            if (beginTijd != BeginTijd)
-            {
-                BeginTijd = beginTijd;
-            }
-
-            if (eindTijd != EindTijd)
-            {
-                EindTijd = eindTijd;
-            }
-
-            if (opmerking != "")
-            {
-                Opmerking = opmerking;
-            }
+            AfspraakRepository.UpdateAfspraak(afspraakStruct);
         }
     }
 }

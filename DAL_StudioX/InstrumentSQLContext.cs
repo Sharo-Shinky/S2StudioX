@@ -8,14 +8,14 @@ using DAL_Interface_StudioX;
 
 namespace DAL_StudioX
 {
-    public class InstrumentSQLContext : IInstrumentCollectieRepository, IInstrumentRepository
+    public class InstrumentSQLContext : IInstrumentContext
     {
         public void AddInstrument(InstrumentStruct instrumentStruct)
         {
             throw new NotImplementedException();
         }
 
-        public List<InstrumentStruct> GetAllInstrument()
+        public List<InstrumentStruct> GetAllInstrumenten()
         {
             throw new NotImplementedException();
         }

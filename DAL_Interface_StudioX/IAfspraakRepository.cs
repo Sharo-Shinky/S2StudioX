@@ -8,6 +8,6 @@ namespace DAL_Interface_StudioX
 {
     public interface IAfspraakRepository
     {
-        void Update(AfspraakStruct afspraakStruct);
+        void UpdateAfspraak(AfspraakStruct afspraakStruct);
     }
 }

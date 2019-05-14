@@ -30,19 +30,24 @@ namespace Factory_StudioX
             return new StudioRepository(new StudioSQLContext());
         }
 
-        public static IInstrumentRepository CreateInstrumentDAL()
+        public static IInstrumentRepository CreateInstrumentSQLContext()
         {
-            return new InstrumentSQLContext();
+            return new InstrumentRepository(new InstrumentSQLContext());
         }
 
-        public static IInstrumentCollectieRepository CreateInstrumentCollectieDAL()
+        public static IInstrumentCollectieRepository CreateInstrumentCollectieSQLContext()
         {
-            return new InstrumentSQLContext();
+            return new InstrumentRepository(new InstrumentSQLContext());
         }
 
-        public static IAfspraakRepository CreateAfspraakDAL()
+        public static IAfspraakRepository CreateAfspraakSQLContext()
         {
-            return new AfspraakSQLContext();
+            return new AfspraakRepository(new AfspraakSQLContext());
+        }
+
+        public static IAfspraakCollectieRepository CreateAfspraakCollectieSQLContext()
+        {
+            return new AfspraakRepository(new AfspraakSQLContext());
         }
     }
 }
