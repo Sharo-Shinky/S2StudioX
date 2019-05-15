@@ -30,6 +30,8 @@ namespace DAL_StudioX
                 command.Parameters.AddWithValue("@Telefoonnummer", studioStruct.TelefoonNummer);
                 command.Parameters.AddWithValue("@Gebruikersnaam", studioStruct.Gebruikersnaam);
                 command.Parameters.AddWithValue("@Wachtwoord", studioStruct.Wachtwoord);
+
+                command.ExecuteNonQuery();
             }
         }
 
