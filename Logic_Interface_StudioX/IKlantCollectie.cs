@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic_Interface_StudioX
 {
-    public interface IStudio
+    public interface IKlantCollectie
     {
 
     }

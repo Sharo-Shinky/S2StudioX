@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Enums;
+
 
 namespace DAL_Interface_StudioX
 {
-    public enum Gender
-    {
-        // LET OP, deze enum wordt ook gebruikt in de logic laag.
-        // Belangrijk dat de volgorde van de set het zelfde blijft in elke laag.
-        // Dit omdat er gecast wordt
-        Onbekend,
-        Man,
-        Vrouw
-    }
     public class KlantStruct
     {
         public int Id { get; private set; }
@@ -70,9 +63,20 @@ namespace DAL_Interface_StudioX
             StudioId = studioId;
         }
 
-        public KlantStruct(string gebruikersnaam)
+        public KlantStruct(int id, string voornaam, string achternaam, Gender geslacht, DateTime geboorteDatum, string telefoonnummer,
+            string emailadres, string straat, int huisnummer, string postcode, string woonplaats)
         {
-            Gebruikersnaam = gebruikersnaam;
+            Id = id;
+            VoorNaam = voornaam;
+            AchterNaam = achternaam;
+            Geslacht = geslacht;
+            GeboorteDatum = geboorteDatum;
+            TelefoonNummer = telefoonnummer;
+            EmailAdres = emailadres;
+            Straat = straat;
+            HuisNummer = huisnummer;
+            PostCode = postcode;
+            WoonPlaats = woonplaats;
         }
     }
 }

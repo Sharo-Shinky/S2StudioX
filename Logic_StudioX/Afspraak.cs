@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
 using Factory_StudioX;
+using Logic_Interface_StudioX;
 
 namespace Logic_StudioX
 {
-    public class Afspraak
+    public class Afspraak : IAfspraak
     {
         public int Id { get; private set; }
         public DateTime BeginTijd { get; private set; }
@@ -30,9 +31,15 @@ namespace Logic_StudioX
             StudioId = afspraakStruct.StudioId;
         }
 
-        public void UpdateAfspraak(AfspraakStruct afspraakStruct)
+        //public void UpdateAfspraak(AfspraakStruct afspraakStruct)
+        //{
+        //    AfspraakRepository.UpdateAfspraak(afspraakStruct);
+        //}
+
+        public void UpdateAfspraak(IAfspraak afspraak)
         {
-            AfspraakRepository.UpdateAfspraak(afspraakStruct);
+            AfspraakRepository.UpdateAfspraak(new AfspraakStruct(afspraak.Id, afspraak.BeginTijd, afspraak.EindTijd,
+                                                                 afspraak.Opmerking, afspraak.KlantId, afspraak.StudioId));
         }
     }
 }

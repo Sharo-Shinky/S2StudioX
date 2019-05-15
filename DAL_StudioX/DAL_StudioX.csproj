@@ -76,6 +76,10 @@
       <Project>{ba6fad5f-ab38-4464-853b-a2c9c16a42c3}</Project>
       <Name>DAL_Interface_StudioX</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{07cc319c-36c4-4e70-87a6-dcc04617517d}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="StudioDatabase.mdf">

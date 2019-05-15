@@ -6,20 +6,13 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
+using Enums;
 using Factory_StudioX;
+using Logic_Interface_StudioX;
 
 namespace Logic_StudioX
 {
-    public enum Gender
-    {
-        // LET OP, deze enum wordt ook gebruikt in de logic laag.
-        // Belangrijk dat de volgorde van de set het zelfde blijft in elke laag.
-        // Dit omdat er gecast wordt
-        Onbekend,
-        Man,
-        Vrouw
-    }
-    public class Klant
+    public class Klant : IKlant
     {
         public int Id { get; private set; }
         public string VoorNaam { get; private set; }
@@ -35,6 +28,8 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
+
+        Gender IKlant.Geslacht => throw new NotImplementedException();
 
         private IKlantRepository KlantRepository = Factory.CreateKlantSQLContext();
 
@@ -59,6 +54,13 @@ namespace Logic_StudioX
         public void UpdateKlant(KlantStruct klantStruct)
         {
             KlantRepository.Update(klantStruct);
+        }
+
+        public void UpdateKlant(IKlant klant)
+        {
+            KlantRepository.Update(new KlantStruct(klant.Id, klant.VoorNaam, klant.AchterNaam, klant.Geslacht, klant.GeboorteDatum,
+                                                   klant.TelefoonNummer, klant.EmailAdres, klant.Straat, klant.HuisNummer,
+                                                   klant.PostCode, klant.WoonPlaats));
         }
 
         public void UpdateGebruikersNaam(string gebruikersnaam, int id)

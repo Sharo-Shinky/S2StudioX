@@ -54,9 +54,17 @@
       <Project>{ba6fad5f-ab38-4464-853b-a2c9c16a42c3}</Project>
       <Name>DAL_Interface_StudioX</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{07cc319c-36c4-4e70-87a6-dcc04617517d}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factory_StudioX\Factory_StudioX.csproj">
       <Project>{f01790c0-3c88-4c68-a9a3-0ac64e190549}</Project>
       <Name>Factory_StudioX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic_Interface_StudioX\Logic_Interface_StudioX.csproj">
+      <Project>{99c0c856-13f3-4ebd-98c0-29e536a9fa47}</Project>
+      <Name>Logic_Interface_StudioX</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

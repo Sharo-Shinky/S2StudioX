@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic_Interface_StudioX
+namespace Enums
 {
-    public interface IStudio
+    public enum Gender
     {
-
+        Onbekend,
+        Man,
+        Vrouw
     }
 }

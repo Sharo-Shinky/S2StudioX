@@ -5,18 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
+using Enums;
 
 namespace DAL_StudioX
 {
-    public enum Gender
-    {
-        // LET OP, deze enum wordt ook gebruikt in de logic laag.
-        // Belangrijk dat de volgorde van de set het zelfde blijft in elke laag.
-        // Dit omdat er gecast wordt
-        Onbekend,
-        Man,
-        Vrouw
-    }
     public class KlantSQLContext : IKlantContext
     {
         DatabaseConnectie DbConn = new DatabaseConnectie();

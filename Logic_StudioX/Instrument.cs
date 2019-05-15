@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
 using Factory_StudioX;
+using Logic_Interface_StudioX;
 
 namespace Logic_StudioX
 {
-    public class Instrument
+    public class Instrument : IInstrument
     {
         public int Id { get; private set; }
         public string Naam { get; private set; }
@@ -25,9 +26,15 @@ namespace Logic_StudioX
             AfspraakId = instrumentStruct.AfspraakId;
         }
 
-        public void UpdateInstrument(InstrumentStruct instrumentStruct)
+        //public void UpdateInstrument(InstrumentStruct instrumentStruct)
+        //{
+        //    InstrumentRepository.UpdateInstrument(instrumentStruct);
+        //}
+
+        public void UpdateInstrument(IInstrument instrument)
         {
-            InstrumentRepository.UpdateInstrument(instrumentStruct);
+            InstrumentRepository.UpdateInstrument(new InstrumentStruct(instrument.Id, instrument.Naam,
+                                                                       instrument.StudioId, instrument.AfspraakId));
         }
     }
 }
