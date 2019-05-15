@@ -18,6 +18,7 @@ namespace DAL_StudioX
             {
                 string query = "INSERT INTO Instrument (Naam, StudioId, AfspraakId) Values (@Naam, @StudioId, @AfspraakId)";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
                 command.Parameters.AddWithValue("@Naam", instrumentStruct.Naam);
                 command.Parameters.AddWithValue("@StudioId", instrumentStruct.StudioId);
@@ -34,7 +35,9 @@ namespace DAL_StudioX
             {
                 string query = "SELECT * FROM Instrument";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -54,9 +57,10 @@ namespace DAL_StudioX
             {
                 string query = "DELETE FROM Instrument WHERE Id = @Id";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
-                SqlParameter param = new SqlParameter("Id", id);
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("Id", id);
+                
                 command.ExecuteNonQuery();
             }
         }
@@ -67,8 +71,10 @@ namespace DAL_StudioX
             {
                 string query = "UPDATE Instrument SET Naam = @Naam";
                 DbConn.connection.Open();
+                
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
-                command.Parameters.Add(new SqlParameter("@Naam", instrumentStruct.Naam));
+                command.Parameters.AddWithValue("@Naam", instrumentStruct.Naam);
+                
                 command.ExecuteNonQuery();
             }
         }

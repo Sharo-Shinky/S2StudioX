@@ -17,8 +17,9 @@ namespace DAL_StudioX
             using (DbConn.connection)
             {
                 string query = "INSERT INTO Afspraak (BeginTijd, EindTijd, Opmerking, KlantId, StudioId) Values" +
-                               "(BeginTijd, EindTijd, Opmerking, KlantId, StudioId)";
+                               "(@BeginTijd, @EindTijd, @Opmerking, @KlantId, @StudioId)";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
                 command.Parameters.AddWithValue("@BeginTijd", afspraakStruct.BeginTijd);
                 command.Parameters.AddWithValue("@EindTijd", afspraakStruct.EindTijd);
@@ -37,6 +38,7 @@ namespace DAL_StudioX
             {
                 string query = "SELECT * FROM Afspraak";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -57,9 +59,10 @@ namespace DAL_StudioX
             {
                 string query = "DELETE FROM Afspraak WHERE Id = @Id";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
-                SqlParameter param = new SqlParameter("@Id", id);
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("@Id", id);
+
                 command.ExecuteNonQuery();
             }
         }
@@ -70,12 +73,12 @@ namespace DAL_StudioX
             {
                 string query = "UPDATE Afspraak SET BeginTijd = @BeginTijd, EindTijd = @EindTijd, Opmerking = @Opmerking";
                 DbConn.connection.Open();
+
                 SqlCommand command = new SqlCommand(query, DbConn.connection);
-
-                command.Parameters.Add(new SqlParameter("@BeginTijd", afspraakStruct.BeginTijd));
-                command.Parameters.Add(new SqlParameter("@EindTijd", afspraakStruct.EindTijd));
-                command.Parameters.Add(new SqlParameter("@Opmerking", afspraakStruct.Opmerking));
-
+                command.Parameters.AddWithValue("@BeginTijd", afspraakStruct.BeginTijd);
+                command.Parameters.AddWithValue("@EindTijd", afspraakStruct.EindTijd);
+                command.Parameters.AddWithValue("@Opmerking", afspraakStruct.Opmerking);
+                
                 command.ExecuteNonQuery();
             }
         }
