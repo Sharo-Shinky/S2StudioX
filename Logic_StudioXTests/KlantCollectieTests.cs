@@ -21,23 +21,6 @@ namespace Logic_StudioX.Tests
     [TestClass()]
     public class KlantCollectieTests
     {
-        [TestMethod()]
-        public void AddTest()
-        {
-            KlantStruct klantStruct = new KlantStruct(0, "Sharo", "Shinky", DAL_Interface_StudioX.Gender.Man,
-                new DateTime(1992, 08, 05), "0634990190", "sharo-shinky@hotmail.com",
-                "Remichweg", 23, "5625LK", "Eindhoven", "Sharo-Shinky", "Wachtwoord1", 1);
-            Klant testklant = new Klant(klantStruct);
-
-            KlantCollectie.Add(klantStruct);
-
-            List<Klant> klantList = KlantCollectie.GetAll();
-
-            klantList.Reverse();
-
-            Klant lastAdded = klantList[0];
-
-            Assert.AreEqual(testklant.VoorNaam, lastAdded.VoorNaam);
-        }
+        
     }
 }

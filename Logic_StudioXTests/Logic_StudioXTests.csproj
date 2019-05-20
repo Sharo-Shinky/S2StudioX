@@ -77,6 +77,10 @@
       <Project>{63315bda-0b19-4cfe-8aa5-85c94fc256f6}</Project>
       <Name>DAL_StudioX</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{07cc319c-36c4-4e70-87a6-dcc04617517d}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factory_StudioX\Factory_StudioX.csproj">
       <Project>{f01790c0-3c88-4c68-a9a3-0ac64e190549}</Project>
       <Name>Factory_StudioX</Name>
