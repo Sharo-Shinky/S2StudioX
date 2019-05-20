@@ -65,5 +65,10 @@ namespace Logic_StudioX
         {
             KlantRepository.UpdateWachtwoord(wachtwoord, id);
         }
+
+        public void MaakAfspraak(IAfspraak afspraak, IInstrument instrument1 = null, IInstrument instrument2 = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -25,6 +25,22 @@ namespace DAL_Interface_StudioX
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
 
+        /// <summary>
+        /// Klant constructor voor toevoegen van klant
+        /// </summary>
+        /// <param name="voornaam"></param>
+        /// <param name="achternaam"></param>
+        /// <param name="geslacht"></param>
+        /// <param name="geboorteDatum"></param>
+        /// <param name="telefoonnummer"></param>
+        /// <param name="emailadres"></param>
+        /// <param name="straat"></param>
+        /// <param name="huisnummer"></param>
+        /// <param name="postcode"></param>
+        /// <param name="woonplaats"></param>
+        /// <param name="gebruikernaam"></param>
+        /// <param name="wachtwoord"></param>
+        /// <param name="studioId"></param>
         public KlantStruct(string voornaam, string achternaam, Gender geslacht, DateTime geboorteDatum, string telefoonnummer,
             string emailadres, string straat, int huisnummer, string postcode, string woonplaats, string gebruikernaam, string wachtwoord, int studioId)
         {
@@ -43,6 +59,23 @@ namespace DAL_Interface_StudioX
             StudioId = studioId;
         }
 
+        /// <summary>
+        /// Klant constructor voor ophalen van klant uit de database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="voornaam"></param>
+        /// <param name="achternaam"></param>
+        /// <param name="geslacht"></param>
+        /// <param name="geboorteDatum"></param>
+        /// <param name="telefoonnummer"></param>
+        /// <param name="emailadres"></param>
+        /// <param name="straat"></param>
+        /// <param name="huisnummer"></param>
+        /// <param name="postcode"></param>
+        /// <param name="woonplaats"></param>
+        /// <param name="gebruikernaam"></param>
+        /// <param name="wachtwoord"></param>
+        /// <param name="studioId"></param>
         public KlantStruct(int id, string voornaam, string achternaam, int geslacht, DateTime geboorteDatum, string telefoonnummer,
             string emailadres, string straat, int huisnummer, string postcode, string woonplaats, string gebruikernaam, string wachtwoord, int studioId)
         {
@@ -62,6 +95,20 @@ namespace DAL_Interface_StudioX
             StudioId = studioId;
         }
 
+        /// <summary>
+        /// Klant constructor voor Updaten van klant
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="voornaam"></param>
+        /// <param name="achternaam"></param>
+        /// <param name="geslacht"></param>
+        /// <param name="geboorteDatum"></param>
+        /// <param name="telefoonnummer"></param>
+        /// <param name="emailadres"></param>
+        /// <param name="straat"></param>
+        /// <param name="huisnummer"></param>
+        /// <param name="postcode"></param>
+        /// <param name="woonplaats"></param>
         public KlantStruct(int id, string voornaam, string achternaam, Gender geslacht, DateTime geboorteDatum, string telefoonnummer,
             string emailadres, string straat, int huisnummer, string postcode, string woonplaats)
         {

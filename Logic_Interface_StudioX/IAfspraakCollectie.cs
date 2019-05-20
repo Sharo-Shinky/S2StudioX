@@ -8,7 +8,7 @@ namespace Logic_Interface_StudioX
 {
     public interface IAfspraakCollectie
     {
-        void AddAfspraak(IAfspraak afspraak);
+        void MaakAfspraak(IKlant klant, IAfspraak afspraak, IInstrument instrument1 = null, IInstrument instrument2 = null);
 
         void RemoveAfspraak(int id);
 
