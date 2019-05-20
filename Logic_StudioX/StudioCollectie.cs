@@ -5,25 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
 using Factory_StudioX;
+using Logic_Interface_StudioX;
 
 namespace Logic_StudioX
 {
-    public static class StudioCollectie
+    public class StudioCollectie : IStudioCollectie
     {
         private static IStudioCollectieRepository StudioCollectieRepository = Factory.CreateStudioCollectieSQLContext();
-        public static void Add(StudioStruct studioStruct)
+        public void Add(IStudio studio)
         {
-            StudioCollectieRepository.Add(studioStruct);
+            StudioCollectieRepository.Add(new StudioStruct(studio.Naam, studio.Straat, studio.HuisNummer, studio.PostCode,
+                                                           studio.WoonPlaats, studio.EmailAdres, studio.TelefoonNummer,
+                                                           studio.Gebruikersnaam, studio.Wachtwoord));
         }
 
-        public static void Remove(int id)
+        public void Remove(int id)
         {
             StudioCollectieRepository.Remove(id);
         }
 
-        public static List<Studio> GetAll()
+        public List<IStudio> GetAll()
         {
-            List<Studio> StudioList = new List<Studio>();
+            List<IStudio> StudioList = new List<IStudio>();
 
             foreach (StudioStruct studioStruct in StudioCollectieRepository.GetAll())
             {

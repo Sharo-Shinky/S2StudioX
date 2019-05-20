@@ -33,5 +33,31 @@ namespace DAL_Interface_StudioX
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
         }
+
+        public StudioStruct(string naam, string straat, int huisnummer, string postcode, string woonplaats,
+            string emailAdres, string telefoonNummer, string gebruikersnaam, string wachtwoord)
+        {
+            Naam = naam;
+            Straat = straat;
+            HuisNummer = huisnummer;
+            PostCode = postcode;
+            WoonPlaats = woonplaats;
+            EmailAdres = emailAdres;
+            TelefoonNummer = telefoonNummer;
+            Gebruikersnaam = gebruikersnaam;
+            Wachtwoord = wachtwoord;
+        }
+
+        public StudioStruct(string naam, string straat, int huisnummer, string postcode, string woonplaats,
+            string emailAdres, string telefoonNummer)
+        {
+            Naam = naam;
+            Straat = straat;
+            HuisNummer = huisnummer;
+            PostCode = postcode;
+            WoonPlaats = woonplaats;
+            EmailAdres = emailAdres;
+            TelefoonNummer = telefoonNummer;
+        }
     }
 }

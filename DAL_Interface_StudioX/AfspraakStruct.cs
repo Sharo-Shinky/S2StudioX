@@ -24,5 +24,14 @@ namespace DAL_Interface_StudioX
             KlantId = klantId;
             StudioId = studioId;
         }
+
+        public AfspraakStruct(DateTime beginTijd, DateTime eindTijd, string opmerking, int klantId, int studioId)
+        {
+            BeginTijd = beginTijd;
+            EindTijd = eindTijd;
+            Opmerking = opmerking;
+            KlantId = klantId;
+            StudioId = studioId;
+        }
     }
 }

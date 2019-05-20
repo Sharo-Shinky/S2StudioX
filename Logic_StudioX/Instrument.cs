@@ -26,11 +26,6 @@ namespace Logic_StudioX
             AfspraakId = instrumentStruct.AfspraakId;
         }
 
-        //public void UpdateInstrument(InstrumentStruct instrumentStruct)
-        //{
-        //    InstrumentRepository.UpdateInstrument(instrumentStruct);
-        //}
-
         public void UpdateInstrument(IInstrument instrument)
         {
             InstrumentRepository.UpdateInstrument(new InstrumentStruct(instrument.Id, instrument.Naam,

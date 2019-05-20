@@ -31,11 +31,6 @@ namespace Logic_StudioX
             StudioId = afspraakStruct.StudioId;
         }
 
-        //public void UpdateAfspraak(AfspraakStruct afspraakStruct)
-        //{
-        //    AfspraakRepository.UpdateAfspraak(afspraakStruct);
-        //}
-
         public void UpdateAfspraak(IAfspraak afspraak)
         {
             AfspraakRepository.UpdateAfspraak(new AfspraakStruct(afspraak.Id, afspraak.BeginTijd, afspraak.EindTijd,

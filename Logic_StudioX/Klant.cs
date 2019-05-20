@@ -28,9 +28,7 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
-
-        Gender IKlant.Geslacht => throw new NotImplementedException();
-
+        
         private IKlantRepository KlantRepository = Factory.CreateKlantSQLContext();
 
         public Klant(KlantStruct klantStruct)
@@ -38,7 +36,7 @@ namespace Logic_StudioX
             Id = klantStruct.Id;
             VoorNaam = klantStruct.VoorNaam;
             AchterNaam = klantStruct.AchterNaam;
-            Geslacht = (Gender)klantStruct.Geslacht;
+            Geslacht = klantStruct.Geslacht;
             GeboorteDatum = klantStruct.GeboorteDatum;
             TelefoonNummer = klantStruct.TelefoonNummer;
             EmailAdres = klantStruct.EmailAdres;
@@ -50,12 +48,7 @@ namespace Logic_StudioX
             Wachtwoord = klantStruct.Wachtwoord;
             StudioId = klantStruct.StudioId;
         }
-
-        public void UpdateKlant(KlantStruct klantStruct)
-        {
-            KlantRepository.Update(klantStruct);
-        }
-
+        
         public void UpdateKlant(IKlant klant)
         {
             KlantRepository.Update(new KlantStruct(klant.Id, klant.VoorNaam, klant.AchterNaam, klant.Geslacht, klant.GeboorteDatum,

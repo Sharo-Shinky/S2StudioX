@@ -21,5 +21,12 @@ namespace DAL_Interface_StudioX
             StudioId = studioId;
             AfspraakId = afspraakId;
         }
+        public InstrumentStruct(string naam, int studioId, int afspraakId)
+        {
+            Naam = naam;
+            StudioId = studioId;
+            AfspraakId = afspraakId;
+        }
+
     }
 }

@@ -5,26 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
 using Factory_StudioX;
+using Logic_Interface_StudioX;
 
 namespace Logic_StudioX
 {
-    public static class KlantCollectie
+    public class KlantCollectie : IKlantCollectie
     {
         private static IKlantCollectieRepository KlantCollectieRepository = Factory.CreateKlantCollectieSQLContext();
 
-        public static void Add(KlantStruct klantStruct)
+        public void Add(IKlant klant)
         {
-            KlantCollectieRepository.Add(klantStruct);
+            KlantCollectieRepository.Add(new KlantStruct(klant.VoorNaam, klant.AchterNaam, klant.Geslacht, klant.GeboorteDatum,
+                                                         klant.TelefoonNummer, klant.EmailAdres, klant.Straat, klant.HuisNummer,
+                                                         klant.PostCode, klant.WoonPlaats, klant.Gebruikersnaam, klant.Wachtwoord,
+                                                         klant.StudioId));
         }
 
-        public static void Remove(int id)
+        public void Remove(int id)
         {
             KlantCollectieRepository.Remove(id);
         }
 
-        public static List<Klant> GetAll()
+        public List<IKlant> GetAll()
         {
-            List<Klant> KlantList = new List<Klant>();
+            List<IKlant> KlantList = new List<IKlant>();
             foreach (KlantStruct klantstruct in KlantCollectieRepository.GetAll())
             {
                 KlantList.Add(new Klant(klantstruct));

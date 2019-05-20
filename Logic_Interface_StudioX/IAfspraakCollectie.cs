@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Logic_Interface_StudioX
 {
-    public interface IKlantCollectie
+    public interface IAfspraakCollectie
     {
-        void Add(IKlant klant);
+        void AddAfspraak(IAfspraak afspraak);
 
-        void Remove(int id);
+        void RemoveAfspraak(int id);
 
-        List<IKlant> GetAll();
+        List<IAfspraak> GetAllAfspraken();
     }
 }
