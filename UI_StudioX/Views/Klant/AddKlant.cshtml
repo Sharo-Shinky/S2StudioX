@@ -1,0 +1,97 @@
+﻿@using Enums
+@model UI_StudioX.Models.Klant 
+
+@{
+    ViewData["Title"] = "AddKlant";
+}
+
+<h2>Create</h2>
+
+<h4>Klant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddKlant">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VoorNaam" class="control-label"></label>
+                <input asp-for="VoorNaam" class="form-control" />
+                <span asp-validation-for="VoorNaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AchterNaam" class="control-label"></label>
+                <input asp-for="AchterNaam" class="form-control" />
+                <span asp-validation-for="AchterNaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Geslacht" class="control-label"></label>
+                @*<input asp-for="Geslacht" class="form-control" />
+                <span asp-validation-for="Geslacht" class="text-danger"></span>*@
+                
+                @{
+                    List<SelectListItem> genderlist = new List<SelectListItem>();
+                    genderlist.Add(new SelectListItem("Man", "1"));
+                    genderlist.Add(new SelectListItem("Vrouw", "2"));
+                }
+                @Html.DropDownList("GeslachtDropDown", genderlist, "Kies een geslacht")
+
+            </div>
+            <div class="form-group">
+                <label asp-for="GeboorteDatum" class="control-label"></label>
+                <input asp-for="GeboorteDatum" class="form-control" />
+                <span asp-validation-for="GeboorteDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefoonNummer" class="control-label"></label>
+                <input asp-for="TelefoonNummer" class="form-control" />
+                <span asp-validation-for="TelefoonNummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAdres" class="control-label"></label>
+                <input asp-for="EmailAdres" class="form-control" />
+                <span asp-validation-for="EmailAdres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Straat" class="control-label"></label>
+                <input asp-for="Straat" class="form-control" />
+                <span asp-validation-for="Straat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HuisNummer" class="control-label"></label>
+                <input asp-for="HuisNummer" class="form-control" />
+                <span asp-validation-for="HuisNummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostCode" class="control-label"></label>
+                <input asp-for="PostCode" class="form-control" />
+                <span asp-validation-for="PostCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WoonPlaats" class="control-label"></label>
+                <input asp-for="WoonPlaats" class="form-control" />
+                <span asp-validation-for="WoonPlaats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gebruikersnaam" class="control-label"></label>
+                <input asp-for="Gebruikersnaam" class="form-control" />
+                <span asp-validation-for="Gebruikersnaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wachtwoord" class="control-label"></label>
+                <input asp-for="Wachtwoord" class="form-control" />
+                <span asp-validation-for="Wachtwoord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@*<script>
+
+</script>*@

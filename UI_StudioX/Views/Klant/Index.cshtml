@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Logic_Interface_StudioX.IKlant>
+
+@{
+    ViewData["Title"] = "GetAllInstrumenten";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="AddKlant">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoorNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AchterNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Geslacht)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeboorteDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoonNummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAdres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Straat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HuisNummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WoonPlaats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gebruikersnaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wachtwoord)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudioId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoorNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AchterNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Geslacht)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeboorteDatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoonNummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAdres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Straat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HuisNummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WoonPlaats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gebruikersnaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wachtwoord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudioId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

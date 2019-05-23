@@ -24,7 +24,17 @@ namespace Logic_Interface_StudioX
         void UpdateGebruikersNaam(string gebruikersnaam, int id);
 
         void UpdateWachtwoord(string wachtwoord, int id);
+        
+        void AddInstrument(IInstrument instrument);
+
+        void RemoveInstrument(int id);
+
+        List<IInstrument> GetAllInstrumenten();
 
         void MaakAfspraak(IKlant klant, IAfspraak afspraak, IInstrument instrument1 = null, IInstrument instrument2 = null);
+
+        void RemoveAfspraak(int id);
+
+        List<IAfspraak> GetAllAfspraken();
     }
 }

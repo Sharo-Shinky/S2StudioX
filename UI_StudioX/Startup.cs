@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL_StudioX;
+using Logic_Interface_StudioX;
+using Logic_StudioX;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +44,11 @@ namespace UI_StudioX
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSingleton<IStudio>(new Studio(new StudioRepository(new StudioSQLContext())));
+
+            services.AddSingleton<IKlantCollectie>(
+                new KlantCollectie(new KlantRepository(new KlantSQLContext())));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +75,7 @@ namespace UI_StudioX
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=GetAllInstrumenten}/{id?}");
             });
         }
     }

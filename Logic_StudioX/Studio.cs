@@ -9,7 +9,7 @@ using Logic_Interface_StudioX;
 
 namespace Logic_StudioX
 {
-    public class Studio : IStudio, IAfspraakCollectie, IInstrumentCollectie
+    public class Studio : IStudio
 
     {
         public int Id { get; private set; }
@@ -22,8 +22,9 @@ namespace Logic_StudioX
         public string WoonPlaats { get; private set; }
         public string Gebruikersnaam { get; private set; }
         public string Wachtwoord { get; private set; }
+        
 
-        private IStudioRepository StudioRepository = Factory.CreateStudioSQLContext();
+        private IStudioRepository StudioRepository;
         private IAfspraakCollectieRepository AfspraakCollectieRepository = Factory.CreateAfspraakCollectieSQLContext();
 
         private IInstrumentCollectieRepository
@@ -41,6 +42,16 @@ namespace Logic_StudioX
             WoonPlaats = studioStruct.WoonPlaats;
             Gebruikersnaam = studioStruct.Gebruikersnaam;
             Wachtwoord = studioStruct.Wachtwoord;
+        }
+
+        public Studio()
+        {
+
+        }
+
+        public Studio(IStudioRepository studioRepository)
+        {
+            StudioRepository = studioRepository;
         }
 
         public void UpdateStudio(IStudio studio)

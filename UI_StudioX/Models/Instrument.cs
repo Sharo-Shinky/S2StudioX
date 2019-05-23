@@ -12,7 +12,11 @@ namespace UI_StudioX.Models
         [Key]
         public int Id { get;  set; }
         public string Naam { get;  set; }
-        //public int StudioId { get;  set; }
-        //public int AfspraakId { get;  set; }
+        public int StudioId { get; set; }
+        [Key]
+        public int AfspraakId { get; set; }
+
+
     }
 }
+    

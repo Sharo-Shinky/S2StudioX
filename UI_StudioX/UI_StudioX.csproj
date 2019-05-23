@@ -12,8 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DAL_Interface_StudioX\DAL_Interface_StudioX.csproj" />
+    <ProjectReference Include="..\DAL_StudioX\DAL_StudioX.csproj" />
     <ProjectReference Include="..\Enums\Enums.csproj" />
+    <ProjectReference Include="..\Factory_StudioX\Factory_StudioX.csproj" />
     <ProjectReference Include="..\Logic_Interface_StudioX\Logic_Interface_StudioX.csproj" />
+    <ProjectReference Include="..\Logic_StudioX\Logic_StudioX.csproj" />
   </ItemGroup>
 
 </Project>

@@ -42,9 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAfspraak.cs" />
-    <Compile Include="IAfspraakCollectie.cs" />
     <Compile Include="IInstrument.cs" />
-    <Compile Include="IInstrumentCollectie.cs" />
     <Compile Include="IKlant.cs" />
     <Compile Include="IKlantCollectie.cs" />
     <Compile Include="IStudio.cs" />

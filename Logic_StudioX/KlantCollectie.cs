@@ -11,7 +11,17 @@ namespace Logic_StudioX
 {
     public class KlantCollectie : IKlantCollectie
     {
-        private static IKlantCollectieRepository KlantCollectieRepository = Factory.CreateKlantCollectieSQLContext();
+        private static IKlantCollectieRepository KlantCollectieRepository;
+
+        public KlantCollectie()
+        {
+
+        }
+
+        public KlantCollectie(IKlantCollectieRepository klantCollectieRepository)
+        {
+            KlantCollectieRepository = klantCollectieRepository;
+        }
 
         public void Add(IKlant klant)
         {
