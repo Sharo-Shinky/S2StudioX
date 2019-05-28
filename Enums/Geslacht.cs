@@ -8,8 +8,7 @@ namespace Enums
 {
     public enum Gender
     {
-        Onbekend,
-        Man,
+        Man =1,
         Vrouw
     }
 }

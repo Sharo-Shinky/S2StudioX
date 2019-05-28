@@ -56,15 +56,36 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="KlantTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL_Interface_StudioX\DAL_Interface_StudioX.csproj">
+      <Project>{ba6fad5f-ab38-4464-853b-a2c9c16a42c3}</Project>
+      <Name>DAL_Interface_StudioX</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL_StudioX\DAL_StudioX.csproj">
       <Project>{63315BDA-0B19-4CFE-8AA5-85C94FC256F6}</Project>
       <Name>DAL_StudioX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{07cc319c-36c4-4e70-87a6-dcc04617517d}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Factory_StudioX\Factory_StudioX.csproj">
+      <Project>{f01790c0-3c88-4c68-a9a3-0ac64e190549}</Project>
+      <Name>Factory_StudioX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic_Interface_StudioX\Logic_Interface_StudioX.csproj">
+      <Project>{99c0c856-13f3-4ebd-98c0-29e536a9fa47}</Project>
+      <Name>Logic_Interface_StudioX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic_StudioX\Logic_StudioX.csproj">
+      <Project>{acfb95e0-d66b-4afd-bb98-d28769729359}</Project>
+      <Name>Logic_StudioX</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

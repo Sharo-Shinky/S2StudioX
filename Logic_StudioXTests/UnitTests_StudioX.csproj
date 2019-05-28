@@ -56,10 +56,14 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AfspraakMemoryContext.cs" />
     <Compile Include="AfspraakTests.cs" />
-    <Compile Include="KlantCollectieTests.cs" />
+    <Compile Include="InstrumentMemoryContext.cs" />
+    <Compile Include="KlantMemoryContext.cs" />
     <Compile Include="KlantTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudioMemoryContext.cs" />
+    <Compile Include="TestFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -68,10 +72,6 @@
     <ProjectReference Include="..\DAL_Interface_StudioX\DAL_Interface_StudioX.csproj">
       <Project>{ba6fad5f-ab38-4464-853b-a2c9c16a42c3}</Project>
       <Name>DAL_Interface_StudioX</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL_StudioXTests\DAL_StudioXTests.csproj">
-      <Project>{6588d20f-e6b4-431b-b818-29dc654b4f30}</Project>
-      <Name>DAL_StudioXTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL_StudioX\DAL_StudioX.csproj">
       <Project>{63315bda-0b19-4cfe-8aa5-85c94fc256f6}</Project>
@@ -84,6 +84,10 @@
     <ProjectReference Include="..\Factory_StudioX\Factory_StudioX.csproj">
       <Project>{f01790c0-3c88-4c68-a9a3-0ac64e190549}</Project>
       <Name>Factory_StudioX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic_Interface_StudioX\Logic_Interface_StudioX.csproj">
+      <Project>{99c0c856-13f3-4ebd-98c0-29e536a9fa47}</Project>
+      <Name>Logic_Interface_StudioX</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic_StudioX\Logic_StudioX.csproj">
       <Project>{ACFB95E0-D66B-4AFD-BB98-D28769729359}</Project>
