@@ -19,7 +19,7 @@ namespace DAL_StudioXTests
         {
             List<IKlant> klantList = klantCollectie.GetAll();
 
-
+            Assert.AreNotEqual(klantList.Count(), 0);
         }
     }
 }

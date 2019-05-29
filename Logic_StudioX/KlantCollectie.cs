@@ -39,6 +39,7 @@ namespace Logic_StudioX
         public List<IKlant> GetAll()
         {
             List<IKlant> KlantList = new List<IKlant>();
+
             foreach (KlantStruct klantstruct in KlantCollectieRepository.GetAll())
             {
                 KlantList.Add(new Klant(klantstruct));

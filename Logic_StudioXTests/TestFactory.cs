@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_Interface_StudioX;
 using DAL_StudioX;
+using Logic_Interface_StudioX;
+using Logic_StudioX;
 
 namespace Logic_StudioXTests
 {
@@ -15,9 +17,9 @@ namespace Logic_StudioXTests
             return new KlantRepository(new KlantMemoryContext());
         }
 
-        public static IKlantCollectieRepository CreateKlantCollectieMemoryContext()
+        public static IKlantCollectie CreateKlantCollectiet()
         {
-            return new KlantRepository(new KlantMemoryContext());
+            return new KlantCollectie(new KlantRepository(new KlantMemoryContext()));
         }
 
         public static IStudioRepository CreateStudioMemoryContext()

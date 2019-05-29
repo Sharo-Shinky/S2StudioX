@@ -48,7 +48,25 @@ namespace Logic_StudioX
             Wachtwoord = klantStruct.Wachtwoord;
             StudioId = klantStruct.StudioId;
         }
-        
+
+        public Klant(IKlant klant)
+        {
+            Id = klant.Id;
+            VoorNaam = klant.VoorNaam;
+            AchterNaam = klant.AchterNaam;
+            Geslacht = klant.Geslacht;
+            GeboorteDatum = klant.GeboorteDatum;
+            TelefoonNummer = klant.TelefoonNummer;
+            EmailAdres = klant.EmailAdres;
+            Straat = klant.Straat;
+            HuisNummer = klant.HuisNummer;
+            PostCode = klant.PostCode;
+            WoonPlaats = klant.WoonPlaats;
+            Gebruikersnaam = klant.Gebruikersnaam;
+            Wachtwoord = klant.Wachtwoord;
+            StudioId = klant.StudioId;
+        }
+
         public void UpdateKlant(IKlant klant)
         {
             KlantRepository.Update(new KlantStruct(klant.Id, klant.VoorNaam, klant.AchterNaam, klant.Geslacht, klant.GeboorteDatum,
