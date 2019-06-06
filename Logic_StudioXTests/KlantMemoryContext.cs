@@ -36,7 +36,7 @@ namespace Logic_StudioXTests
         public void Remove(int id)
         {
             //KlantStructList.Remove(KlantStructList.FirstOrDefault(cs => cs.Id == id));
-
+ 
             KlantStructList.RemoveAt(id);
         }
 

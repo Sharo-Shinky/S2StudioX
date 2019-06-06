@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic_StudioX", "Logic_StudioX\Logic_StudioX.csproj", "{ACFB95E0-D66B-4AFD-BB98-D28769729359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests_StudioX", "Logic_StudioXTests\UnitTests_StudioX.csproj", "{608CB59C-374B-4CA2-9D1D-B738D965A218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic_StudioX.Tests", "Logic_StudioXTests\Logic_StudioX.Tests.csproj", "{608CB59C-374B-4CA2-9D1D-B738D965A218}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_StudioX", "DAL_StudioX\DAL_StudioX.csproj", "{63315BDA-0B19-4CFE-8AA5-85C94FC256F6}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_Interface_StudioX", "DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory_StudioX", "Factory_StudioX\Factory_StudioX.csproj", "{F01790C0-3C88-4C68-A9A3-0AC64E190549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegratieTests_StudioX", "DAL_StudioXTests\IntegratieTests_StudioX.csproj", "{6588D20F-E6B4-431B-B818-29DC654B4F30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_StudioXTests", "DAL_StudioXTests\DAL_StudioXTests.csproj", "{6588D20F-E6B4-431B-B818-29DC654B4F30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic_Interface_StudioX", "Logic_Interface_StudioX\Logic_Interface_StudioX.csproj", "{99C0C856-13F3-4EBD-98C0-29E536A9FA47}"
 EndProject

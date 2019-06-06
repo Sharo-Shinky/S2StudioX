@@ -17,9 +17,9 @@ namespace Logic_StudioXTests
             return new KlantRepository(new KlantMemoryContext());
         }
 
-        public static IKlantCollectie CreateKlantCollectiet()
+        public static IKlantCollectieRepository CreateKlantCollectieMemoryContext()
         {
-            return new KlantCollectie(new KlantRepository(new KlantMemoryContext()));
+            return new KlantRepository(new KlantMemoryContext());
         }
 
         public static IStudioRepository CreateStudioMemoryContext()

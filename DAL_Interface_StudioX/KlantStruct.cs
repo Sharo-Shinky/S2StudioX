@@ -24,7 +24,7 @@ namespace DAL_Interface_StudioX
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
-
+        
         /// <summary>
         /// Klant constructor voor toevoegen van klant
         /// </summary>

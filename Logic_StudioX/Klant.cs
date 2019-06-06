@@ -28,8 +28,8 @@ namespace Logic_StudioX
         public string Gebruikersnaam { get; }
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
-        
-        private IKlantRepository KlantRepository = Factory.CreateKlantSQLContext();
+
+        public static IKlantRepository KlantRepository { get; set; }
 
         public Klant(KlantStruct klantStruct)
         {
