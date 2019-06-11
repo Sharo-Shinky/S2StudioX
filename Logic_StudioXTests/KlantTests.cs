@@ -22,7 +22,6 @@ namespace Logic_StudioX.Tests
         [TestInitialize]
         public void Inittialize()
         {
-            KlantCollectie.KlantCollectieRepository = TestFactory.CreateKlantCollectieMemoryContext();
             KlantList = new List<KlantStruct>();
             klantMemoryContext = new KlantMemoryContext();
         }

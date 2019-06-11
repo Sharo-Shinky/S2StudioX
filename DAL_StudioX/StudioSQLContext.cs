@@ -10,14 +10,20 @@ namespace DAL_StudioX
 {
     public class StudioSQLContext : IStudioContext
     {
-        DatabaseConnectie DbConn = new DatabaseConnectie();
+        private DatabaseConnectie DbConn;
+        public StudioSQLContext()
+        {
+            DbConn = new DatabaseConnectie();
+        }
+
+        
 
         public void Add(StudioStruct studioStruct)
         {
             using (DbConn.connection)
             {
                 string query = "INSERT INTO Studio(Naam, Straat, Huisnummer, Postcode, Woonplaats, Email," +
-                               "Telefoonnummer, Gebruikersnaam, Wachtwoord) Values (@Naam, @Straat, @Huisnummer" +
+                               "Telefoonnummer, Gebruikersnaam, Wachtwoord) Values (@Naam, @Straat, @Huisnummer," +
                                "@Postcode, @Woonplaats, @Email, @Telefoonnummer, @Gebruikersnaam, @Wachtwoord)";
                 DbConn.connection.Open();
 

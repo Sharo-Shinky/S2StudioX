@@ -11,7 +11,13 @@ namespace DAL_StudioX
 {
     public class KlantSQLContext : IKlantContext
     {
-        DatabaseConnectie DbConn = new DatabaseConnectie();
+        private readonly DatabaseConnectie DbConn;
+
+        public KlantSQLContext()
+        {
+            DbConn = new DatabaseConnectie();
+        }
+        
         public void Add(KlantStruct klantStruct)
         {
             using (DbConn.connection)
