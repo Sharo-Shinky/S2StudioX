@@ -10,17 +10,22 @@ namespace DAL_StudioX
 {
     public class AfspraakSQLContext : IAfspraakContext
     {
-        DatabaseConnectie DbConn = new DatabaseConnectie();
+        private DatabaseConnectie DbConn;
+
+        public AfspraakSQLContext()
+        {
+            DbConn = new DatabaseConnectie();
+        }
 
         public void AddAfspraak(AfspraakStruct afspraakStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "INSERT INTO Afspraak (BeginTijd, EindTijd, Opmerking, KlantId, StudioId) Values" +
                                "(@BeginTijd, @EindTijd, @Opmerking, @KlantId, @StudioId)";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@BeginTijd", afspraakStruct.BeginTijd);
                 command.Parameters.AddWithValue("@EindTijd", afspraakStruct.EindTijd);
                 command.Parameters.AddWithValue("@Opmerking", afspraakStruct.Opmerking);
@@ -34,12 +39,12 @@ namespace DAL_StudioX
         public List<AfspraakStruct> GetAllAfspraken()
         {
             List<AfspraakStruct> afspraakStructList = new List<AfspraakStruct>();
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "SELECT * FROM Afspraak";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -55,12 +60,12 @@ namespace DAL_StudioX
 
         public void RemoveAfspraak(int id)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "DELETE FROM Afspraak WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Id", id);
 
                 command.ExecuteNonQuery();
@@ -69,12 +74,12 @@ namespace DAL_StudioX
 
         public void UpdateAfspraak(AfspraakStruct afspraakStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "UPDATE Afspraak SET BeginTijd = @BeginTijd, EindTijd = @EindTijd, Opmerking = @Opmerking";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@BeginTijd", afspraakStruct.BeginTijd);
                 command.Parameters.AddWithValue("@EindTijd", afspraakStruct.EindTijd);
                 command.Parameters.AddWithValue("@Opmerking", afspraakStruct.Opmerking);

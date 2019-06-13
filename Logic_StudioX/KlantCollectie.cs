@@ -11,7 +11,7 @@ namespace Logic_StudioX
 {
     public class KlantCollectie : IKlantCollectie
     {
-        private IKlantCollectieRepository KlantCollectieRepository;
+        private static IKlantCollectieRepository KlantCollectieRepository;
 
         public KlantCollectie()
         {

@@ -15,19 +15,17 @@ namespace DAL_StudioX
         {
             DbConn = new DatabaseConnectie();
         }
-
-        
-
+         
         public void Add(StudioStruct studioStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "INSERT INTO Studio(Naam, Straat, Huisnummer, Postcode, Woonplaats, Email," +
                                "Telefoonnummer, Gebruikersnaam, Wachtwoord) Values (@Naam, @Straat, @Huisnummer," +
                                "@Postcode, @Woonplaats, @Email, @Telefoonnummer, @Gebruikersnaam, @Wachtwoord)";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Naam", studioStruct.Naam);
                 command.Parameters.AddWithValue("@Straat", studioStruct.Straat);
                 command.Parameters.AddWithValue("@Huisnummer", studioStruct.HuisNummer);
@@ -45,12 +43,12 @@ namespace DAL_StudioX
         public List<StudioStruct> GetAll()
         {
             List<StudioStruct> studioStructList = new List<StudioStruct>();
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "SELECT * FROM Studio";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command  = new SqlCommand(query, DbConn.connection);
+                SqlCommand command  = new SqlCommand(query, conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -69,12 +67,12 @@ namespace DAL_StudioX
 
         public void Remove(int id)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "DELETE FROM Studio WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Id", id);
 
                 command.ExecuteNonQuery();
@@ -83,14 +81,14 @@ namespace DAL_StudioX
 
         public void Update(StudioStruct studioStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "UPDATE Studio SET Naam = @Naam, Straat = @Straat, Huisnummer = @Huisnummer," +
                                "Postcode = @Postcode, Woonplaats = @Woonplaats, Email = @Email," +
-                               "Telefoonnummer = @Telefoonnummer, WHERE Id = @Id";
-                DbConn.connection.Open();
+                               "Telefoonnummer = @Telefoonnummer WHERE Id = @Id";
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Naam", studioStruct.Naam);
                 command.Parameters.AddWithValue("@Straat", studioStruct.Straat);
                 command.Parameters.AddWithValue("@Huisnummer", studioStruct.HuisNummer);
@@ -106,12 +104,12 @@ namespace DAL_StudioX
 
         public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "UPDATE Studio SET Gebruikersnaam = @Gebruikersnaam WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
                 command.Parameters.AddWithValue("@Id", id);
 
@@ -121,14 +119,17 @@ namespace DAL_StudioX
 
         public void UpdateWachtwoord(string wachtwoord, int id)
         {
-            string query = "UPDATE Studio SET Wachtwoord = @Wachtwoord WHERE Id = @Id";
-            DbConn.connection.Open();
+            using (SqlConnection conn = DbConn.connection)
+            {
+                string query = "UPDATE Studio SET Wachtwoord = @Wachtwoord WHERE Id = @Id";
+                conn.Open();
 
-            SqlCommand command = new SqlCommand(query, DbConn.connection);
-            command.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
-            command.Parameters.AddWithValue("@Id", id);
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                command.Parameters.AddWithValue("@Id", id);
 
-            command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

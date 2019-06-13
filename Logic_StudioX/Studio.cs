@@ -22,13 +22,11 @@ namespace Logic_StudioX
         public string WoonPlaats { get; private set; }
         public string Gebruikersnaam { get; private set; }
         public string Wachtwoord { get; private set; }
-        
+
 
         private IStudioRepository StudioRepository;
-        private IAfspraakCollectieRepository AfspraakCollectieRepository = Factory.CreateAfspraakCollectieSQLContext();
-
-        private IInstrumentCollectieRepository
-        InstrumentCollectieRepository = Factory.CreateInstrumentCollectieSQLContext();
+        private IAfspraakCollectieRepository AfspraakCollectieRepository;
+        private IInstrumentCollectieRepository InstrumentCollectieRepository;
 
         public Studio(StudioStruct studioStruct)
         {
@@ -54,9 +52,19 @@ namespace Logic_StudioX
             StudioRepository = studioRepository;
         }
 
+        public Studio(IAfspraakCollectieRepository afspraakCollectieRepository)
+        {
+            AfspraakCollectieRepository = afspraakCollectieRepository;
+        }
+
+        public Studio(IInstrumentCollectieRepository instrumentCollectieRepository)
+        {
+            InstrumentCollectieRepository = instrumentCollectieRepository;
+        }
+
         public void UpdateStudio(IStudio studio)
         {
-            StudioRepository.Update(new StudioStruct(studio.Naam, studio.Straat, studio.HuisNummer, studio.PostCode,
+            StudioRepository.Update(new StudioStruct(studio.Id, studio.Naam, studio.Straat, studio.HuisNummer, studio.PostCode,
                                                      studio.WoonPlaats, studio.EmailAdres, studio.TelefoonNummer));
         }
 
@@ -82,14 +90,12 @@ namespace Logic_StudioX
             
             if (instrument1 != null)
             {
-                Instrument Muziekinstrument1 = new Instrument(new InstrumentStruct(instrument1.Naam, instrument1.StudioId,
-                                                                                   instrument1.AfspraakId));
+                Instrument Muziekinstrument1 = new Instrument(new InstrumentStruct(instrument1.Naam, instrument1.StudioId));
             }
 
             if (instrument2 != null)
             {
-                Instrument Muziekinstrument2 = new Instrument(new InstrumentStruct(instrument2.Naam, instrument2.StudioId,
-                                                                                   instrument2.AfspraakId));
+                Instrument Muziekinstrument2 = new Instrument(new InstrumentStruct(instrument2.Naam, instrument2.StudioId));
             }
 
             customer.MaakAfspraak(afspraak, instrument1, instrument2);
@@ -114,8 +120,7 @@ namespace Logic_StudioX
 
         public void AddInstrument(IInstrument instrument)
         {
-            InstrumentCollectieRepository.AddInstrument(new InstrumentStruct(instrument.Naam, instrument.StudioId,
-                                                                             instrument.AfspraakId));
+            InstrumentCollectieRepository.AddInstrument(new InstrumentStruct(instrument.Naam, instrument.StudioId));
         }
 
         public void RemoveInstrument(int id)

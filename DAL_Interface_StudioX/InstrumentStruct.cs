@@ -11,21 +11,18 @@ namespace DAL_Interface_StudioX
         public int Id { get; private set; }
         public string Naam { get; }
         public int StudioId { get; private set; }
-        public int AfspraakId { get; private set; }
 
 
-        public InstrumentStruct(int id, string naam, int studioId, int afspraakId)
+        public InstrumentStruct(int id, string naam, int studioId)
         {
             Id = id;
             Naam = naam;
             StudioId = studioId;
-            AfspraakId = afspraakId;
         }
-        public InstrumentStruct(string naam, int studioId, int afspraakId)
+        public InstrumentStruct(string naam, int studioId)
         {
             Naam = naam;
             StudioId = studioId;
-            AfspraakId = afspraakId;
         }
 
     }

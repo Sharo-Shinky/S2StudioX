@@ -10,19 +10,23 @@ namespace DAL_StudioX
 {
     public class InstrumentSQLContext : IInstrumentContext
     {
-        DatabaseConnectie DbConn = new DatabaseConnectie();
+        private DatabaseConnectie DbConn;
+
+        public InstrumentSQLContext()
+        {
+            DbConn = new DatabaseConnectie();
+        }
         
         public void AddInstrument(InstrumentStruct instrumentStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
-                string query = "INSERT INTO Instrument (Naam, StudioId, AfspraakId) Values (@Naam, @StudioId, @AfspraakId)";
-                DbConn.connection.Open();
+                string query = "INSERT INTO Instrument (Naam, StudioId) Values (@Naam, @StudioId)";
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Naam", instrumentStruct.Naam);
                 command.Parameters.AddWithValue("@StudioId", instrumentStruct.StudioId);
-                command.Parameters.AddWithValue("@AfspraakId", instrumentStruct.AfspraakId);
 
                 command.ExecuteNonQuery();
             }
@@ -31,19 +35,19 @@ namespace DAL_StudioX
         public List<InstrumentStruct> GetAllInstrumenten()
         {
             List<InstrumentStruct> instrumentStructList = new List<InstrumentStruct>();
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "SELECT * FROM Instrument";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         instrumentStructList.Add(new InstrumentStruct(reader.GetInt32(0), reader.GetString(1),
-                                                                      reader.GetInt32(2), reader.GetInt32(3)));
+                                                                      reader.GetInt32(2)));
                     }
                 }
             }
@@ -53,12 +57,12 @@ namespace DAL_StudioX
 
         public void RemoveInstrument(int id)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "DELETE FROM Instrument WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("Id", id);
                 
                 command.ExecuteNonQuery();
@@ -67,12 +71,12 @@ namespace DAL_StudioX
 
         public void UpdateInstrument(InstrumentStruct instrumentStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "UPDATE Instrument SET Naam = @Naam";
-                DbConn.connection.Open();
+                conn.Open();
                 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Naam", instrumentStruct.Naam);
                 
                 command.ExecuteNonQuery();

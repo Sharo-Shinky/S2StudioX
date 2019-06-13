@@ -29,7 +29,17 @@ namespace Logic_StudioX
         public string Wachtwoord { get; private set; }
         public int StudioId { get; private set; }
 
-        public static IKlantRepository KlantRepository { get; set; }
+        private IKlantRepository KlantRepository;
+
+        public Klant()
+        {
+            
+        }
+
+        public Klant(IKlantRepository klantRepository)
+        {
+            KlantRepository = klantRepository;
+        }
 
         public Klant(KlantStruct klantStruct)
         {

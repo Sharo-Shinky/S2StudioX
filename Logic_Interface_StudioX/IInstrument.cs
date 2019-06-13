@@ -11,7 +11,6 @@ namespace Logic_Interface_StudioX
         int Id { get; }
         string Naam { get; }
         int StudioId { get; }
-        int AfspraakId { get; }
 
         void UpdateInstrument(IInstrument instrument);
     }

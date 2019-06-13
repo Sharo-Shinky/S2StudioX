@@ -19,7 +19,12 @@ namespace Logic_StudioX
         public int KlantId { get; private set; }
         public int StudioId { get; private set; }
 
-        private IAfspraakRepository AfspraakRepository = Factory.CreateAfspraakSQLContext();
+        private IAfspraakRepository AfspraakRepository;
+
+        public Afspraak(IAfspraakRepository afspraakRepository)
+        {
+            AfspraakRepository = afspraakRepository;
+        }
 
         public Afspraak(AfspraakStruct afspraakStruct)
         {

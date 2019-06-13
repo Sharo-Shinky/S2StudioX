@@ -11,7 +11,13 @@ namespace Logic_StudioX
 {
     public class StudioCollectie : IStudioCollectie
     {
-        private static IStudioCollectieRepository StudioCollectieRepository = Factory.CreateStudioCollectieSQLContext();
+        private IStudioCollectieRepository StudioCollectieRepository;
+
+        public StudioCollectie(IStudioCollectieRepository studioCollectieRepository)
+        {
+            StudioCollectieRepository = studioCollectieRepository;
+        }
+
         public void Add(IStudio studio)
         {
             StudioCollectieRepository.Add(new StudioStruct(studio.Naam, studio.Straat, studio.HuisNummer, studio.PostCode,

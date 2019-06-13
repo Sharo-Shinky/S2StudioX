@@ -35,5 +35,20 @@ namespace DAL_StudioXTests
         {
             return new InstrumentRepository(new InstrumentSQLContext());
         }
+
+        public static IInstrumentRepository CreateInstrumentSQLContext()
+        {
+            return new InstrumentRepository(new InstrumentSQLContext());
+        }
+
+        public static IAfspraakRepository CreateAfspraakSQLContext()
+        {
+            return new AfspraakRepository(new AfspraakSQLContext());
+        }
+
+        public static IAfspraakCollectieRepository CreateAfspraakCollectieSQLContext()
+        {
+            return new AfspraakRepository(new AfspraakSQLContext());
+        }
     }
 }

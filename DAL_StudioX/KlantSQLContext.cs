@@ -11,7 +11,7 @@ namespace DAL_StudioX
 {
     public class KlantSQLContext : IKlantContext
     {
-        private readonly DatabaseConnectie DbConn;
+        private DatabaseConnectie DbConn;
 
         public KlantSQLContext()
         {
@@ -20,15 +20,15 @@ namespace DAL_StudioX
         
         public void Add(KlantStruct klantStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "INSERT INTO Klant(Voornaam, Achternaam, Geslacht, Geboortedatum, Telefoonnummer, Email," +
                                "Straat, Huisnummer, Postcode, Woonplaats, Gebruikersnaam, Wachtwoord, StudioId) Values" +
                                "(@Voornaam, @Achternaam, @Geslacht, @Geboortedatum, @Telefoonnummer, @Email, @Straat," +
                                "@Huisnummer, @Postcode, @Woonplaats, @Gebruikersnaam, @Wachtwoord, @StudioId)";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Voornaam", klantStruct.VoorNaam);
                 command.Parameters.AddWithValue("@Achternaam", klantStruct.AchterNaam);
                 command.Parameters.AddWithValue("Geslacht", (int)(klantStruct.Geslacht));
@@ -50,12 +50,12 @@ namespace DAL_StudioX
         public List<KlantStruct> GetAll()
         {
             List<KlantStruct> klantStructList = new List<KlantStruct>();
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "SELECT * FROM Klant";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -75,12 +75,12 @@ namespace DAL_StudioX
 
         public void Remove(int id)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "DELETE FROM Klant WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Id", id);
                 
                 command.ExecuteNonQuery();
@@ -89,20 +89,21 @@ namespace DAL_StudioX
 
         public void Update(KlantStruct klantStruct)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
-                string query = "UPDATE Klant SET Voornaaam = @Voornaam, Achternaam = @Achternaam, Geslacht = @Geslacht, " +
+                string query = "UPDATE Klant SET Voornaam = @Voornaam, Achternaam = @Achternaam, Geslacht = @Geslacht, " +
                                "Geboortedatum = @Geboortedatum, Telefoonnummer = @Telefoonnummer, Email = @Email, " +
                                "Straat = @Straat, Huisnummer = @Huisnummer, Postcode = @Postcode, Woonplaats = @Woonplaats" +
                                " WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query,conn);
                 command.Parameters.AddWithValue("@Voornaam", klantStruct.VoorNaam);
                 command.Parameters.AddWithValue("@Achternaam", klantStruct.AchterNaam);
                 command.Parameters.AddWithValue("@Geslacht", (int)klantStruct.Geslacht);
                 command.Parameters.AddWithValue("@Geboortedatum", klantStruct.GeboorteDatum);
                 command.Parameters.AddWithValue("@Telefoonnummer", klantStruct.TelefoonNummer);
+                command.Parameters.AddWithValue("@Email", klantStruct.EmailAdres);
                 command.Parameters.AddWithValue("@Straat", klantStruct.Straat);
                 command.Parameters.AddWithValue("@Huisnummer", klantStruct.HuisNummer);
                 command.Parameters.AddWithValue("@Postcode", klantStruct.PostCode);
@@ -115,12 +116,12 @@ namespace DAL_StudioX
 
         public void UpdateGebruikersNaam(string gebruikersnaam, int id)
         {
-            using (DbConn.connection)
+            using (SqlConnection conn = DbConn.connection)
             {
                 string query = "UPDATE Klant SET Gebruikersnaam = @Gebruikersnaam WHERE Id = @Id";
-                DbConn.connection.Open();
+                conn.Open();
 
-                SqlCommand command = new SqlCommand(query, DbConn.connection);
+                SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
                 command.Parameters.AddWithValue("@Id", id);
 
@@ -130,14 +131,19 @@ namespace DAL_StudioX
 
         public void UpdateWachtwoord(string wachtwoord, int id)
         {
-            string query = "UPDATE Klant SET Wachtwoord = @Wachtwoord WHERE Id = @Id";
-            DbConn.connection.Open();
+            using (SqlConnection conn = DbConn.connection)
+            {
+                string query = "UPDATE Klant SET Wachtwoord = @Wachtwoord WHERE Id = @Id";
+                conn.Open();
 
-            SqlCommand command = new SqlCommand(query, DbConn.connection);
-            command.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
-            command.Parameters.AddWithValue("@Id", id);
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                command.Parameters.AddWithValue("@Id", id);
 
-            command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
+            }
+
+            
         }
     }
 }

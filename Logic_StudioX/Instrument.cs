@@ -14,22 +14,25 @@ namespace Logic_StudioX
         public int Id { get; private set; }
         public string Naam { get; private set; }
         public int StudioId { get; private set; }
-        public int AfspraakId { get; private set; }
 
-        private IInstrumentRepository InstrumentRepository = Factory.CreateInstrumentSQLContext();
+        private IInstrumentRepository InstrumentRepository;
+
+        public Instrument(IInstrumentRepository instrumentRepository)
+        {
+            InstrumentRepository = instrumentRepository;
+        }
 
         public Instrument(InstrumentStruct instrumentStruct)
         {
             Id = instrumentStruct.Id;
             Naam = instrumentStruct.Naam;
             StudioId = instrumentStruct.StudioId;
-            AfspraakId = instrumentStruct.AfspraakId;
         }
 
         public void UpdateInstrument(IInstrument instrument)
         {
             InstrumentRepository.UpdateInstrument(new InstrumentStruct(instrument.Id, instrument.Naam,
-                                                                       instrument.StudioId, instrument.AfspraakId));
+                                                                       instrument.StudioId));
         }
     }
 }

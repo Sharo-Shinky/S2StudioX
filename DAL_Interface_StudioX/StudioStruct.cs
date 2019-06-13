@@ -48,9 +48,10 @@ namespace DAL_Interface_StudioX
             Wachtwoord = wachtwoord;
         }
 
-        public StudioStruct(string naam, string straat, int huisnummer, string postcode, string woonplaats,
+        public StudioStruct(int id, string naam, string straat, int huisnummer, string postcode, string woonplaats,
             string emailAdres, string telefoonNummer)
         {
+            Id = id;
             Naam = naam;
             Straat = straat;
             HuisNummer = huisnummer;
