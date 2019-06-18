@@ -16,54 +16,43 @@ namespace Logic_StudioX.Tests
     [TestClass()]
     public class KlantTests
     {
-        private List<KlantStruct> KlantList;
-        private KlantMemoryContext klantMemoryContext;
+        private List<KlantStruct> klantList;
+        KlantRepository klantRepository = new KlantRepository(TestFactory.CreateKlantMemoryContext());
 
-        [TestInitialize]
-        public void Inittialize()
+        [TestMethod()]
+        public void Get_All_Klanten_Test()
         {
-            KlantList = new List<KlantStruct>();
-            klantMemoryContext = new KlantMemoryContext();
+            klantList = klantRepository.GetAll();
+
+            Assert.AreEqual(3, klantList.Count);
         }
 
         [TestMethod()]
-        public void GetAll_Klanten_Test()
+        public void Add_Klant_Test_Vierde_Klant_Toevoegen()
         {
-            KlantList = klantMemoryContext.GetAll();
-
-            for (int i = 0; i < KlantList.Count; i++)
-            {
-                Assert.AreEqual(KlantList[i].VoorNaam, klantMemoryContext.KlantStructList[i].VoorNaam);
-            }
-        }
-
-        [TestMethod()]
-        public void Add_Klant_Test()
-        {
-            KlantStruct nieuweKlantStruct = new KlantStruct("Klant4", "Achternaam4", Gender.Man, new DateTime(2019, 6, 6),
+            KlantStruct nieuweKlantStruct = new KlantStruct(4, "Klant4", "Achternaam4", (int)Gender.Man, new DateTime(2019, 6, 6),
                                                             "0681826354", "email@hotmail.com", "straat", 4, "9999XZ",
                                                             "Stad4", "Gebruikersnaam4", "Wachtwoord4", 1);
 
-            List<KlantStruct> KlantListAfterAdding = new List<KlantStruct>();
+            //List<KlantStruct> klantListAfterAdding = new List<KlantStruct>();
 
-            KlantList = klantMemoryContext.GetAll();
+            klantList = klantRepository.GetAll();
 
-            KlantList.Add(nieuweKlantStruct);
+            klantList.Add(nieuweKlantStruct);
 
-            Assert.AreEqual(KlantList.Count(), 4);
+            Assert.AreEqual(4, klantList.Count);
         }
 
         [TestMethod()]
         public void Remove_Klant_Test()
         {
-            KlantStruct nieuweKlantStruct = new KlantStruct("Klant4", "Achternaam4", Gender.Man, new DateTime(2019, 6, 6),
-                                                            "0681826354", "email@hotmail.com", "straat", 4, "9999XZ",
-                                                            "Stad4", "Gebruikersnaam4", "Wachtwoord4", 1);
-            KlantList = klantMemoryContext.GetAll();
+            klantList = klantRepository.GetAll();
 
-            KlantList.Add(nieuweKlantStruct);
+            klantRepository.Remove(3);
 
-            Assert.IsTrue(KlantList.Remove(nieuweKlantStruct));
+            int numberOfKlantenAfterRemoving = klantRepository.GetAll().Count;
+
+            Assert.AreEqual(2, numberOfKlantenAfterRemoving);
         }
     }
 }

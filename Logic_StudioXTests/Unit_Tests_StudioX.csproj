@@ -59,10 +59,12 @@
     <Compile Include="AfspraakMemoryContext.cs" />
     <Compile Include="AfspraakTests.cs" />
     <Compile Include="InstrumentMemoryContext.cs" />
+    <Compile Include="InstrumentTests.cs" />
     <Compile Include="KlantMemoryContext.cs" />
     <Compile Include="KlantTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudioMemoryContext.cs" />
+    <Compile Include="StudioTests.cs" />
     <Compile Include="TestFactory.cs" />
   </ItemGroup>
   <ItemGroup>

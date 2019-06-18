@@ -12,44 +12,24 @@ namespace Logic_StudioXTests
 {
     public static class TestFactory
     {
-        public static IKlantRepository CreateKlantMemoryContext()
+        public static IKlantContext CreateKlantMemoryContext()
         {
-            return new KlantRepository(new KlantMemoryContext());
+            return new KlantMemoryContext();
         }
 
-        public static IKlantCollectieRepository CreateKlantCollectieMemoryContext()
+        public static IStudioContext CreateStudioMemoryContext()
         {
-            return new KlantRepository(new KlantMemoryContext());
+            return new StudioMemoryContext();
         }
 
-        public static IStudioRepository CreateStudioMemoryContext()
+        public static IInstrumentContext CreateInstrumentMemoryContext()
         {
-            return new StudioRepository(new StudioMemoryContext());
+            return new InstrumentMemoryContext();
         }
 
-        public static IStudioCollectieRepository CreateStudioCollectieMemoryContext()
+        public static IAfspraakContext CreateAfspraakMemoryContext()
         {
-            return new StudioRepository(new StudioMemoryContext());
-        }
-
-        public static IInstrumentRepository CreateInstrumentMemoryContext()
-        {
-            return new InstrumentRepository(new InstrumentMemoryContext());
-        }
-
-        public static IInstrumentCollectieRepository CreateInstrumentCollectieMemoryContext()
-        {
-            return new InstrumentRepository(new InstrumentMemoryContext());
-        }
-
-        public static IAfspraakRepository CreateAfspraakMemoryContext()
-        {
-            return new AfspraakRepository(new AfspraakMemoryContext());
-        }
-
-        public static IAfspraakCollectieRepository CreateAfspraakCollectieMemoryContext()
-        {
-            return new AfspraakRepository(new AfspraakMemoryContext());
+            return new AfspraakMemoryContext();
         }
     }
 }

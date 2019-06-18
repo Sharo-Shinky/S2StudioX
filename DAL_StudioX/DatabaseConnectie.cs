@@ -15,5 +15,7 @@ namespace DAL_StudioX
         }
 
         private const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\249519\source\repos\Sharo-Shinky\KillerAppS2\StudioX\DAL_StudioX\StudioDB.mdf;Integrated Security=True";
+
+        private const string connstring = "Server=mssql.fhict.local;Database=dbi249519;User Id=dbi249519;Password=Dilkash1964";
     }
 }

@@ -10,24 +10,33 @@ namespace Logic_StudioXTests
 {
     public class InstrumentMemoryContext : IInstrumentContext
     {
+        private List<InstrumentStruct> instrumentList = new List<InstrumentStruct>();
+
+        public InstrumentMemoryContext()
+        {
+            instrumentList.Add(new InstrumentStruct("Fluit", 1));
+            instrumentList.Add(new InstrumentStruct("Gitaar", 1));
+            instrumentList.Add(new InstrumentStruct("Piano", 1));
+        }
+
         public void AddInstrument(InstrumentStruct instrumentStruct)
         {
-            throw new NotImplementedException();
+            instrumentList.Add(instrumentStruct);
         }
 
         public List<InstrumentStruct> GetAllInstrumenten()
         {
-            throw new NotImplementedException();
+            return instrumentList;
         }
 
         public void RemoveInstrument(int id)
         {
-            throw new NotImplementedException();
+            instrumentList.RemoveAt(id);
         }
 
         public void UpdateInstrument(InstrumentStruct instrumentStruct)
         {
-            throw new NotImplementedException();
+            InstrumentStruct instrument = instrumentList.FirstOrDefault(instrmnt => instrmnt.Id == instrumentStruct.Id);
         }
     }
 }
